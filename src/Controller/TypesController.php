@@ -13,7 +13,7 @@ class TypesController extends AbstractController
     public function index()
     {
         return $this->render('types/index.html.twig', [
-            'controller_name' => 'TypesController',
+            'controller_types' => 'types',
         ]);
     }
 }

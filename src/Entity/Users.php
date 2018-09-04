@@ -190,4 +190,37 @@ class Users
 
         return $this;
     }
+
+    /**
+     * Back the salt
+     * {@inheritdoc}
+     */
+    public function getSalt(): simplexml_load_string
+    {
+        return null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function eraseCredentials(): void
+    {
+
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function serialize(): string
+    {
+        return serialize([$this->id, $this->first_name, $this->password]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function unserialize($serialize): void
+    {
+        [$this->id, $this->first_name, $this->password] = unserialize($serialized,['allowed_classes'=>false]);
+    }
 }

@@ -13,7 +13,7 @@ class CountriesController extends AbstractController
     public function index()
     {
         return $this->render('countries/index.html.twig', [
-            'controller_name' => 'CountriesController',
+            'controller_countries' => 'countries',
         ]);
     }
 }

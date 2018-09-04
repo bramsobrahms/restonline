@@ -13,7 +13,7 @@ class CitiesController extends AbstractController
     public function index()
     {
         return $this->render('cities/index.html.twig', [
-            'controller_name' => 'CitiesController',
+            'controller_cities' => 'cities',
         ]);
     }
 }

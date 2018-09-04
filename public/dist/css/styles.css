@@ -1,0 +1,15 @@
+#homeNav{
+    width: 60%;
+    margin-left: 20%;
+}
+
+#logo{
+    margin-left: -25%;
+    width: 95px;
+    height: 80px;
+}
+
+#slideResto{
+    color: red;
+    text-align: center;
+}
