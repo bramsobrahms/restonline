@@ -2,10 +2,16 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
+ * @ORM\Table(name="users")
+ * @UniqueEntity(fields="email", message="This email is already use")
  */
 class Users
 {
@@ -66,6 +72,11 @@ class Users
      */
     private $date_create;
 
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $role;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -79,7 +90,6 @@ class Users
     public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
@@ -91,7 +101,6 @@ class Users
     public function setFirstName(string $first_name): self
     {
         $this->first_name = $first_name;
-
         return $this;
     }
 
@@ -103,7 +112,6 @@ class Users
     public function setBirthday(\DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
-
         return $this;
     }
 
@@ -115,7 +123,6 @@ class Users
     public function setSexe(string $sexe): self
     {
         $this->sexe = $sexe;
-
         return $this;
     }
 
@@ -127,7 +134,6 @@ class Users
     public function setStreet(string $street): self
     {
         $this->street = $street;
-
         return $this;
     }
 
@@ -139,7 +145,6 @@ class Users
     public function setZipCode(int $zip_code): self
     {
         $this->zip_code = $zip_code;
-
         return $this;
     }
 
@@ -151,7 +156,6 @@ class Users
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
         return $this;
     }
 
@@ -160,10 +164,9 @@ class Users
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword(string $password): User
     {
         $this->password = $password;
-
         return $this;
     }
 
@@ -175,8 +178,21 @@ class Users
     public function setPhone(string $phone): self
     {
         $this->phone = $phone;
-
         return $this;
+    }
+
+    /**
+     * give back all roles of user
+     */
+    public function getRole(): array
+    {
+        $role = $this->role;
+        return array_unique($role);
+    }
+
+    public function setRole(array $role): void
+    {
+        $this->role = $role;
     }
 
     public function getDateCreate(): ?\DateTimeInterface
@@ -187,7 +203,6 @@ class Users
     public function setDateCreate(\DateTimeInterface $date_create): self
     {
         $this->date_create = $date_create;
-
         return $this;
     }
 

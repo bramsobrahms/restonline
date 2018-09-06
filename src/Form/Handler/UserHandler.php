@@ -2,7 +2,7 @@
 
 namespace App\Form\Handler;
 
-use App\Entity\User;
+use App\Entity\Users;
 use App\Model\User as UserModel;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\ORMException;
@@ -11,6 +11,7 @@ use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserHandler
 {
@@ -30,7 +31,7 @@ class UserHandler
         $this->loggerInterface = $loggerInterface;
     }
 
-    public function handle(FormInterface $form, Request $request)
+    public function handle(FormInterface $form, Request $request, UserPasswordEncoderInterface $encoder)
     {
         $form->handleRequest($request);
 
@@ -41,14 +42,17 @@ class UserHandler
             $userModel = $form->getData();
 
             /**
-             * @var User $user
+             * @var Users $user
              */
-            $user = new User();
+            $user = new Users();
             $user->setName($userModel -> name);
-            $user->setFirstName($userModel -> firs_name);
+            $user->setFirstName($userModel -> first_name);
             $user->setEmail($userModel -> email);
-            $user->setPassword();
-            $user->setRoles(['ROLE_USER']);
+            $user->setRole(['ROLE_USER']);
+
+            $passEncoded = $encoder->encodePassword($user, $userModel->password);
+            $user->setPassword($passEncoded);
+
 
             try{
                 $this->objectManager->persist($user);
