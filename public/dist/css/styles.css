@@ -1,15 +1,49 @@
 #homeNav{
+    margin-top: 5%;
     width: 60%;
     margin-left: 20%;
 }
 
+#li1{
+    background-color: #00CC00;
+    height: 75px;
+}
+#li2{
+    background-color: #22CC00;
+}
+#li3{
+    background-color: #44CC00;
+}
+#li4{
+    background-color: #66CC00;
+}
+a:link, a:visited{
+    color: white;
+    font-family: "Arial Black", Times, serif;
+    font-size: 20px;
+}
+
 #logo{
-    margin-left: -25%;
+    position: absolute;
+    margin-left: 5%;
     width: 95px;
     height: 80px;
+    z-index: 10;
 }
 
 #slideResto{
     color: red;
     text-align: center;
+}
+#slideresto{
+    margin-left:22%;
+    margin-top: 5%;
+    border: 5px double purple;
+    width: 900px;
+    height: 450px;
+}
+
+#img1{
+    height: 85%;
+    width: 80%;
 }

@@ -3,53 +3,107 @@
 {% block title %} {{ controller_restaurants }}{% endblock %}
 
 {% block body %}    
-    <p> on verra les nouveautés</p>
-
-    <div>
-        <h1 id="slideResto"> Il y aura le slide de trois restaurants </h1>
+    <div id="slideresto">
+        <h1 id="slideResto"> Il y aura le slide pour trois restaurants </h1>
     </div>
 
     <div class="card-deck">
         <div class="card">
-            <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+            <img class="card-img-top" src="pictures/chou.jpg" alt="Card image cap" id="img1" />
             <div class="card-body">
-                <h5 class="card-title">Restaurant 1</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">
+                    {{street}} <br />{{zipCode}} {{city}}
+                    <hr />
+                    Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+                    Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+                    Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+                    Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+                    Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+                    Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+                    Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+                    <hr />
+                    {{phone}}
+                    <hr />
+                    {{email}}
+                </p>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Reserver</small>
+                <small class="text-muted"><button>Commander</button></small>
             </div>
         </div>
         <div class="card">
-            <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Restaurant 2</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Reserver</small>
-            </div>
+                <img class="card-img-top" src="pictures/ellis.jpg" alt="Card image cap" id="img1" />
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">
+                        {{street}} <br />{{zipCode}} {{city}}
+                        <hr />
+                        Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+                        Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+                        Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+                        Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+                        Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+                        Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+                        Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+                        <hr />
+                        {{phone}}
+                        <hr />
+                        {{email}}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted"><button>Commander</button></small>
+                </div>
         </div>
         <div class="card">
-            <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Restaurant 3</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                <img class="card-img-top" src="pictures/chou.jpg" alt="Card image cap" id="img1" />
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <p class="card-text">
+                        {{street}} <br />{{zipCode}} {{city}}
+                        <hr />
+                        Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+                        Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+                        Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+                        Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+                        Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+                        Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+                        Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+                        <hr />
+                        {{phone}}
+                        <hr />
+                        {{email}}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted"><button>Commander</button></small>
+                </div>
             </div>
-            <div class="card-footer">
-                <small class="text-muted">Reserver</small>
+            <div class="card">
+                    <img class="card-img-top" src="pictures/ellis.jpg" alt="Card image cap" id="img1" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-text">
+                            {{street}} <br />{{zipCode}} {{city}}
+                            <hr />
+                            Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+                            Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+                            Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+                            Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+                            Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+                            Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+                            Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+                            <hr />
+                            {{phone}}
+                            <hr />
+                            {{email}}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"><button>Commander</button></small>
+                    </div>
             </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Restaurant 4</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Reserver</small>
-            </div>
-        </div>
     </div>
 {% endblock %}
 

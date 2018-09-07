@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ controller_restaurants }}{% endblock %}
+
+{% block body %}
+
+    <div>
+        <h1 id="slideResto"> Il y aura une map</h1>
+    </div>
+
+    <div class="card-deck">
+        <div class="card">
+            <img class="card-img-top" src="pictures/chou.jpg" alt="Card image cap" id="img1" />
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">
+                    {{street}} <br />{{zipCode}} {{city}}
+                    <hr />
+                    Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+                    Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+                    Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+                    Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+                    Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+                    Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+                    Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+                    <hr />
+                    {{phone}}
+                    <hr />
+                    {{email}}
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted"><button>Reserver</button></small>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
