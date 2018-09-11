@@ -17,6 +17,7 @@ class RestaurantsController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
 
         $restaurant = new Restaurants();
+        $restaurant->setPicture('chou');
         $restaurant->setName('Chou');
         $restaurant->setStreet('Place de Londres 5');
         $restaurant->setZipCode('1050');
@@ -25,7 +26,7 @@ class RestaurantsController extends AbstractController
         $restaurant->setEmail('chou@gmail.com');
         $restaurant->setTva('BCE 0485789635');
         $restaurant->setWebsite('www.chou.be');
-        $restaurant->setPictureId('1');
+
 
         $entityManager->persist($restaurant);
 
@@ -35,14 +36,17 @@ class RestaurantsController extends AbstractController
         return $this->render('restaurants/index.html.twig', [
             'controller_restaurants' => 'restaurants',
             
+            'picture'=> $restaurant->getPicture(),
             'name'=> $restaurant->getName(),
             'street'=> $restaurant->getStreet(),
             'zipCode'=> $restaurant->getZipCode(),
             'city'=> $restaurant->getCity(),
             'phone'=> $restaurant->getPhone(),
             'email'=> $restaurant->getEmail(),
+            'web'=>$restaurant->getWebsite(),
         ]);
     }
+
     /**
      * @Route("/restaurant/{id}", name="restaurant_id")
      */
@@ -58,12 +62,17 @@ class RestaurantsController extends AbstractController
         return $this->render('restaurants/oneResto.html.twig', [
             'controller_oneResto' => 'oneResto',
             
-            'name'=> $restaurant->getName(),
-            'street'=> $restaurant->getStreet(),
-            'zipCode'=> $restaurant->getZipCode(),
-            'city'=> $restaurant->getCity(),
-            'phone'=> $restaurant->getPhone(),
-            'email'=> $restaurant->getEmail(),
+            'pictureResto'=> $restaurant->getPicture(),
+            'nameResto'=> $restaurant->getName(),
+            'streetResto'=> $restaurant->getStreet(),
+            'zipCodeResto'=> $restaurant->getZipCode(),
+            'cityResto'=> $restaurant->getCity(),
+            'phoneResto'=> $restaurant->getPhone(),
+            'emailResto'=> $restaurant->getEmail(),
+            'webResto'=>$restaurant->getWebsite(),
         ]);
     }
+
+
+    
 }

@@ -57,9 +57,10 @@ class Restaurants
     private $website;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
-    private $picture_id;
+    private $picture;
+
 
     public function getId(): ?int
     {
@@ -162,14 +163,14 @@ class Restaurants
         return $this;
     }
 
-    public function getPictureId(): ?int
+    public function getPicture(): ?string
     {
-        return $this->picture_id;
+        return $this->picture;
     }
 
-    public function setPictureId(int $picture_id): self
+    public function setPicture(string $picture): self
     {
-        $this->picture_id = $picture_id;
+        $this->picture = $picture;
 
         return $this;
     }

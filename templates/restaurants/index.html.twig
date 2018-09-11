@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ controller_restaurants }}{% endblock %}
+{% block title %} {{ controller_restaurants }} {% endblock %}
 
 {% block body %}    
     <div id="slideresto">
@@ -9,7 +9,7 @@
 
     <div class="card-deck">
         <div class="card">
-            <img class="card-img-top" src="pictures/chou.jpg" alt="Card image cap" id="img1" />
+            <img class="card-img-top" src="pictures/chou.jpg" alt="{{picture}}" id="imgResto" />
             <div class="card-body">
                 <h5 class="card-title">{{name}}</h5>
                 <p class="card-text">
@@ -25,7 +25,10 @@
                     <hr />
                     {{phone}}
                     <hr />
-                    {{email}}
+                    {{email}}<br />
+                    {{web}}
+                    <hr />
+                    Menu
                 </p>
             </div>
             <div class="card-footer">
@@ -49,7 +52,10 @@
                         <hr />
                         {{phone}}
                         <hr />
-                        {{email}}
+                        {{email}}<br />
+                        {{web}}
+                        <hr />
+                        Menu
                     </p>
                 </div>
                 <div class="card-footer">
@@ -73,7 +79,10 @@
                         <hr />
                         {{phone}}
                         <hr />
-                        {{email}}
+                        {{email}}<br />
+                        {{web}}
+                        <hr />
+                        Menu
                     </p>
                 </div>
                 <div class="card-footer">
@@ -97,7 +106,10 @@
                             <hr />
                             {{phone}}
                             <hr />
-                            {{email}}
+                            {{email}}<br />
+                            {{web}}
+                            <hr />
+                            Menu
                         </p>
                     </div>
                     <div class="card-footer">

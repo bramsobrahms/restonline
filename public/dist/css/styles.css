@@ -36,14 +36,14 @@ a:link, a:visited{
     text-align: center;
 }
 #slideresto{
-    margin-left:22%;
+    margin-left:23%;
     margin-top: 5%;
     border: 5px double purple;
-    width: 900px;
-    height: 450px;
+    width: 57%;
+    height: 400px;
 }
 
-#img1{
+#imgResto{
     height: 85%;
     width: 80%;
 }

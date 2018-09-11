@@ -1,38 +1,52 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ controller_restaurants }}{% endblock %}
+{% block title %} {{ controller_oneResto }} {% endblock %}
 
-{% block body %}
-
+{% block body %}   
+<div>
     <div>
-        <h1 id="slideResto"> Il y aura une map</h1>
+        <img class="card-img-top" src="pictures/chou.jpg" alt="{{pictureResto}}" id="imgResto" />
     </div>
+    <p>
+        {{nameResto}}
+    </p>
+    <p>
+        {{streetResto}} <br />{{zipCodeResto}} {{cityResto}}
+    </p>
+    <p>
+        Tél: {{phoneResto}}<br />
+        Mail: {{emailResto}}
+    </p>
+    <div>
+        <p>Il y aura une map</p>
+    </div>
+</div>
+<div>
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-entrees-tab" data-toggle="tab" href="#nav-entrees" role="tab" aria-controls="nav-entrees" aria-selected="true">Entrées</a>
+            <a class="nav-item nav-link" id="nav-plats-tab" data-toggle="tab" href="#nav-plats" role="tab" aria-controls="nav-plats" aria-selected="false">Plats</a>
+            <a class="nav-item nav-link" id="nav-desserts-tab" data-toggle="tab" href="#nav-desserts" role="tab" aria-controls="nav-desserts" aria-selected="false">Désserts</a>
+            <a class="nav-item nav-link" id="nav-boissons-tab" data-toggle="tab" href="#nav-boissons" role="tab" aria-controls="nav-boissons" aria-selected="false">Boissons</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-entrees" role="tabpanel" aria-labelledby="nav-entrees-tab">
+            <div>
+               
+            </div>
 
-    <div class="card-deck">
-        <div class="card">
-            <img class="card-img-top" src="pictures/chou.jpg" alt="Card image cap" id="img1" />
-            <div class="card-body">
-                <h5 class="card-title">{{name}}</h5>
-                <p class="card-text">
-                    {{street}} <br />{{zipCode}} {{city}}
-                    <hr />
-                    Lundi : 10:00 - 15:00  18:00 - 00:00<br />
-                    Mardi : 10:00 - 15:00  18:00 - 00:00<br />
-                    Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
-                    Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
-                    Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
-                    Samedi: 10:00 - 15:00  18:00 - 00:00<br />
-                    Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
-                    <hr />
-                    {{phone}}
-                    <hr />
-                    {{email}}
-                </p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted"><button>Reserver</button></small>
-            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-plats" role="tabpanel" aria-labelledby="nav-plats-tab">
+
+        </div>
+        <div class="tab-pane fade" id="nav-desserts" role="tabpanel" aria-labelledby="nav-desserts-tab">
+
+        </div>
+        <div class="tab-pane fade" id="nav-boissons" role="tabpanel" aria-labelledby="nav-boissons-tab">
+
         </div>
     </div>
+</div>
 {% endblock %}
 
