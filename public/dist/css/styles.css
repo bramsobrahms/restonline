@@ -1,3 +1,7 @@
+/*
+ This is for the folder templates
+ restaurants/base.html.twig
+*/
 #homeNav{
     margin-top: 5%;
     width: 60%;
@@ -31,10 +35,21 @@ a:link, a:visited{
     z-index: 10;
 }
 
+/*
+ This is for the folder template
+ restaurants/index.html.twig
+*/
+#imgResto{
+    height: 85%;
+    width: 80%;
+}
+
+/* a supprimer */
 #slideResto{
     color: red;
     text-align: center;
 }
+/* supprimer la bordure */
 #slideresto{
     margin-left:23%;
     margin-top: 5%;
@@ -43,7 +58,28 @@ a:link, a:visited{
     height: 400px;
 }
 
-#imgResto{
-    height: 85%;
-    width: 80%;
+/*
+ This is for the template
+ restaurants/oneResto.html.twig
+*/
+#imgOneResto{
+    margin-top: 8%;
+    width: 40%;
+    height: 50%;
 }
+
+#theOneResto{
+    margin-top: -10.5%;
+    margin-left: 17%
+}
+
+#titleOneResto{
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#map {
+    height: 30%;
+    width: 40%
+  }

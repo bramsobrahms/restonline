@@ -11,9 +11,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  * @ORM\Table(name="users")
- * @UniqueEntity(fields="email", message="This email is already use")
+ * @UniqueEntity(fields={"email"}, message="This email is already use")
  */
-class Users
+class Users implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -53,7 +53,12 @@ class Users
     private $zip_code;
 
     /**
-     * @ORM\Column(type="string", length=90)
+     * @ORM\Column(type="string", length=45)
+     */
+    private $city;
+
+    /**
+     * @ORM\Column(type="string", length=90, unique=true)
      */
     private $email;
 
@@ -80,6 +85,12 @@ class Users
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): Users
+    {
+        $this->id = $id;
+        return $this;
     }
 
     public function getName(): ?string
@@ -148,6 +159,16 @@ class Users
         return $this;
     }
 
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+        return $this;
+    }
     public function getEmail(): ?string
     {
         return $this->email;
@@ -164,7 +185,7 @@ class Users
         return $this->password;
     }
 
-    public function setPassword(string $password): User
+    public function setPassword(string $password): Users
     {
         $this->password = $password;
         return $this;
@@ -181,20 +202,6 @@ class Users
         return $this;
     }
 
-    /**
-     * give back all roles of user
-     */
-    public function getRole(): array
-    {
-        $role = $this->role;
-        return array_unique($role);
-    }
-
-    public function setRole(array $role): void
-    {
-        $this->role = $role;
-    }
-
     public function getDateCreate(): ?\DateTimeInterface
     {
         return $this->date_create;
@@ -206,11 +213,24 @@ class Users
         return $this;
     }
 
+    public function getRole(): ?string
+    {
+        return $this-> $user;
+    }
+
+    public function setRole(string $role)
+    {
+        $this->role = $role;
+        return $this;
+    }
+
+ 
+    
     /**
      * Back the salt
      * {@inheritdoc}
      */
-    public function getSalt(): simplexml_load_string
+    public function getSalt(): ?string
     {
         return null;
     }
@@ -218,7 +238,7 @@ class Users
     /**
      * {@inheritdoc}
      */
-    public function eraseCredentials(): void
+    public function eraseCredentials():void
     {
 
     }
@@ -226,16 +246,45 @@ class Users
     /**
      * {@inheritdoc}
      */
-    public function serialize(): string
+    public function serialize(): simplexml_load_string
     {
-        return serialize([$this->id, $this->first_name, $this->password]);
+        return serialize([$this->id, $this->email, $this->password]);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function unserialize($serialize): void
+    public function unserialize($serialized): void
     {
-        [$this->id, $this->first_name, $this->password] = unserialize($serialized,['allowed_classes'=>false]);
+        [$this->id, $this->email, $this->password] = unserialize($serialized, ['allowed_classes'=> false]);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUsername(): string 
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): Users
+    {
+        $this->username = $username;
+        return $this;
+    }
+
+
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): void
+    {
+        $this->roles = $roles;
+    }
+
+
+
 }

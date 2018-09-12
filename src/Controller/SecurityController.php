@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\users;
 use App\Form\Handler\UserHandler;
 use App\Form\Type\RegisterType;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,7 +24,7 @@ class SecurityController extends AbstractController
         $form = $this->createForm(RegisterType::class);
 
         if($formHandler->handle($form, $request, $encoder)){
-            return $this->redirectToRoute('list');
+            return $this->redirectToRoute('restaurants');
         }
 
         return $this->render('security/register.html.twig', [ 'form' => $form->createView()]);

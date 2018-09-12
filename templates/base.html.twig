@@ -3,14 +3,18 @@
     <head>
         <meta charset="UTF-8">
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ ('dist/css/bootstrap.css') }}" />
-            <link rel="stylesheet" href="{{ ('dist/css/bootstrap.min.css') }}" />
-            <link rel="stylesheet" href="{{ ('dist/css/styles.css') }}" />
+            <link rel="stylesheet" href="{{ ('/dist/css/bootstrap.css') }}" />
+            <link rel="stylesheet" href="{{ ('/dist/css/bootstrap.min.css') }}" />
+            <link rel="stylesheet" href="{{ ('/dist/css/styles.css') }}" />
+            <link rel="stylesheet" href="{{ ('/dist/js/bootstrap.min.js') }}" />
+            <link rel="stylesheet" href="{{ ('/dist/js/bootstrap.js') }}" />
+            <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+            <meta charset="utf-8">
         {% endblock %}
     </head>
     
     <body>
-        <img id="logo" src="pictures/logo.gif" alt="logo du site"/>
+        <img id="logo" src="/pictures/logo.gif" alt="logo du site"/>
         <div id="homeNav">
             <ul class="nav nav-pills nav-fill">
                 <li id="li1" class="nav-item">
@@ -28,6 +32,8 @@
                 </li>
             </ul>
         </div>
+
+        {% block body %} {% endblock %}
     </body>
-    {% block body %} {% endblock %}
+
 </html>

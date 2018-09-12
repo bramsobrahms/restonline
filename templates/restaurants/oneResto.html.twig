@@ -2,51 +2,58 @@
 
 {% block title %} {{ controller_oneResto }} {% endblock %}
 
-{% block body %}   
-<div>
-    <div>
-        <img class="card-img-top" src="pictures/chou.jpg" alt="{{pictureResto}}" id="imgResto" />
+
+{% block body %}  
+<div id="imgOneResto">
+        <img class="card-img-top" src="/pictures/chou.jpg" alt="{{pictureResto}}" id="imgOneResto" />
     </div>
-    <p>
-        {{nameResto}}
-    </p>
-    <p>
-        {{streetResto}} <br />{{zipCodeResto}} {{cityResto}}
-    </p>
-    <p>
-        Tél: {{phoneResto}}<br />
-        Mail: {{emailResto}}
-    </p>
-    <div>
-        <p>Il y aura une map</p>
+    <div id="theOneResto">
+        <p id ="titleOneResto">
+            {{nameResto}}
+        </p>
+        <p>
+            {{streetResto}} <br />{{zipCodeResto}} {{cityResto}}
+        </p>
+        <p>
+            Tél: {{phoneResto}}<br />
+            Mail: {{emailResto}}
+        </p>
     </div>
-</div>
-<div>
-    <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-entrees-tab" data-toggle="tab" href="#nav-entrees" role="tab" aria-controls="nav-entrees" aria-selected="true">Entrées</a>
-            <a class="nav-item nav-link" id="nav-plats-tab" data-toggle="tab" href="#nav-plats" role="tab" aria-controls="nav-plats" aria-selected="false">Plats</a>
-            <a class="nav-item nav-link" id="nav-desserts-tab" data-toggle="tab" href="#nav-desserts" role="tab" aria-controls="nav-desserts" aria-selected="false">Désserts</a>
-            <a class="nav-item nav-link" id="nav-boissons-tab" data-toggle="tab" href="#nav-boissons" role="tab" aria-controls="nav-boissons" aria-selected="false">Boissons</a>
-        </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-entrees" role="tabpanel" aria-labelledby="nav-entrees-tab">
-            <div>
-               
+    <p>map</p>
+    <div id="map"></div>
+
+    <div>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#starter" role="tab" aria-controls="nav-home" aria-selected="true">Starters</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#food" role="tab" aria-controls="nav-profile" aria-selected="false">Foods</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#dessert" role="tab" aria-controls="nav-contact" aria-selected="false">Desserts</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#drink" role="tab" aria-controls="nav-contact" aria-selected="false">Drinks</a>
             </div>
-
-        </div>
-        <div class="tab-pane fade" id="nav-plats" role="tabpanel" aria-labelledby="nav-plats-tab">
-
-        </div>
-        <div class="tab-pane fade" id="nav-desserts" role="tabpanel" aria-labelledby="nav-desserts-tab">
-
-        </div>
-        <div class="tab-pane fade" id="nav-boissons" role="tabpanel" aria-labelledby="nav-boissons-tab">
-
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="starter" role="tabpanel" aria-labelledby="nav-home-tab"> There are all starters from this restaurant</div>
+            <div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="nav-profile-tab"> There are all foods from this restaurant </div>
+            <div class="tab-pane fade" id="dessert" role="tabpanel" aria-labelledby="nav-contact-tab"> There are all desserts from this restaurant </div>
+            <div class="tab-pane fade" id="drink" role="tabpanel" aria-labelledby="nav-contact-tab"> There are all drinks from this restaurant </div>
         </div>
     </div>
-</div>
+
+    <div>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#starter" role="tab" aria-controls="nav-home" aria-selected="true">Reserver</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#navFood" role="tab" aria-controls="nav-profile" aria-selected="false">Sur place</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#navDessert" role="tab" aria-controls="nav-contact" aria-selected="false">Emporter</a>
+                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#navDrink" role="tab" aria-controls="nav-contact" aria-selected="false">Livrer</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="starter" role="tabpanel" aria-labelledby="nav-home-tab"> ... </div>
+                <div class="tab-pane fade" id="navFood" role="tabpanel" aria-labelledby="nav-profile-tab"> ... </div>
+                <div class="tab-pane fade" id="navDessert" role="tabpanel" aria-labelledby="nav-contact-tab"> ... </div>
+                <div class="tab-pane fade" id="navDrink" role="tabpanel" aria-labelledby="nav-contact-tab"> ... </div>
+            </div>
+        </div>
 {% endblock %}
 

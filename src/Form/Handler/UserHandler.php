@@ -48,7 +48,16 @@ class UserHandler
             $user->setName($userModel -> name);
             $user->setFirstName($userModel -> first_name);
             $user->setEmail($userModel -> email);
-            $user->setRole(['ROLE_USER']);
+            $user->setBirthday($userModel -> birthday);
+            $user->setSexe($userModel -> sexe);
+            $user->setStreet($userModel -> street);
+            $user->setZipCode($userModel -> zip_code);
+            $user->setCity($userModel -> city);
+            $user->setPhone($userModel -> phone);
+            
+            $user->setRole($userModel -> role);
+            $user->setDateCreate($userModel -> date_create);
+            $user->setRoles(['ROLE_USER']);
 
             $passEncoded = $encoder->encodePassword($user, $userModel->password);
             $user->setPassword($passEncoded);
