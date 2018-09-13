@@ -1,3 +1,7 @@
+body{
+    width: 94%;
+    margin: auto;
+}
 /*
  This is for the folder templates
  restaurants/base.html.twig
@@ -35,10 +39,19 @@ a:link, a:visited{
     z-index: 10;
 }
 
+#footer{
+    background-color: #00CC00;
+    text-align: center;
+}
+
 /*
  This is for the folder template
  restaurants/index.html.twig
 */
+
+#cardResto{
+    margin-top:3%;
+}
 #imgResto{
     height: 85%;
     width: 80%;

@@ -19,9 +19,50 @@
             Mail: {{emailResto}}
         </p>
     </div>
+
+
+
+
+
+
+    <div id="map"></div>
+
     <p>map</p>
     <div id="map"></div>
 
+	  <script>
+		   var street = 'place flagey '
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {zoom: 15});
+        var geocoder = new google.maps.Geocoder;
+        geocoder.geocode({'address': street}, function(results, status) {
+          if (status === 'OK') {
+            map.setCenter(results[0].geometry.location);
+            new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+            });
+          } else {
+            window.alert('Geocode was not successful for the following reason: ' +
+                status);
+          }
+        });
+      }
+
+	  </script>
+	  	      <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4Pprf2t1oOgoxpxNXkvnmkJp5Z1Z_7_I&callback=initMap">
+    </script>
+       
+
+ 
+    
+
+
+
+
+
+   
     <div>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -55,5 +96,8 @@
                 <div class="tab-pane fade" id="navDrink" role="tabpanel" aria-labelledby="nav-contact-tab"> ... </div>
             </div>
         </div>
+
 {% endblock %}
+
+
 

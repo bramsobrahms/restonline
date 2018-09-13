@@ -14,37 +14,11 @@ class RestaurantsController extends AbstractController
      */
     public function index()
     {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $restaurant = new Restaurants();
-        $restaurant->setPicture('chou');
-        $restaurant->setName('Chou');
-        $restaurant->setStreet('Place de Londres 5');
-        $restaurant->setZipCode('1050');
-        $restaurant->setCity('Ixelles');
-        $restaurant->setPhone('+32 2 684 36 98');
-        $restaurant->setEmail('chou@gmail.com');
-        $restaurant->setTva('BCE 0485789635');
-        $restaurant->setWebsite('www.chou.be');
-
-
-        $entityManager->persist($restaurant);
-
-        $entityManager->flush();
+        $restaurants= $this->getDoctrine()->getRepository
+        (Restaurants::class)->findAll();
 
         //return new Response('Restaurant: '.$restaurant->getName());
-        return $this->render('restaurants/index.html.twig', [
-            'controller_restaurants' => 'restaurants',
-            
-            'picture'=> $restaurant->getPicture(),
-            'name'=> $restaurant->getName(),
-            'street'=> $restaurant->getStreet(),
-            'zipCode'=> $restaurant->getZipCode(),
-            'city'=> $restaurant->getCity(),
-            'phone'=> $restaurant->getPhone(),
-            'email'=> $restaurant->getEmail(),
-            'web'=>$restaurant->getWebsite(),
-        ]);
+        return $this->render('restaurants/index.html.twig', array('restaurants' => $restaurants));
     }
 
     /**

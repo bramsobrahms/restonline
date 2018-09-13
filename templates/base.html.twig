@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ ('/dist/css/bootstrap.css') }}" />
             <link rel="stylesheet" href="{{ ('/dist/css/bootstrap.min.css') }}" />
             <link rel="stylesheet" href="{{ ('/dist/css/styles.css') }}" />
             <link rel="stylesheet" href="{{ ('/dist/js/bootstrap.min.js') }}" />
             <link rel="stylesheet" href="{{ ('/dist/js/bootstrap.js') }}" />
-            <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-            <meta charset="utf-8">
+           
         {% endblock %}
     </head>
     
@@ -34,6 +36,13 @@
         </div>
 
         {% block body %} {% endblock %}
+
+        <div id="footer">
+            {% block footer %} 
+                Brahim KHADRI<br /> -- TFE -- <br />2018
+            {% endblock %}
+        </div>
+
     </body>
 
 </html>
