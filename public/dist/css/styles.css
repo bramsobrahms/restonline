@@ -40,6 +40,7 @@ a:link, a:visited{
 }
 
 #footer{
+    margin-top:2%;
     background-color: #00CC00;
     text-align: center;
 }
@@ -50,11 +51,12 @@ a:link, a:visited{
 */
 
 #cardResto{
-    margin-top:3%;
+    margin-top: 3%;
+    margin-left: 1%;
 }
 #imgResto{
-    height: 85%;
-    width: 80%;
+    height: 200px;
+    width: 315px;
 }
 
 /* a supprimer */
@@ -71,19 +73,29 @@ a:link, a:visited{
     height: 400px;
 }
 
+#linkSite{
+    color:darkgreen;
+}
+
+#btnHref{
+    color: #66CC00;
+    margin: 30%;
+    
+}
+
 /*
  This is for the template
  restaurants/oneResto.html.twig
 */
 #imgOneResto{
     margin-top: 8%;
-    width: 40%;
-    height: 50%;
+    height: 200px;
+    width: 315px;
 }
 
 #theOneResto{
     margin-top: -10.5%;
-    margin-left: 17%
+    margin-left: 22%
 }
 
 #titleOneResto{
