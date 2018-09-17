@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Restaurants;
+use App\Entity\Foods;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class RestaurantsController extends AbstractController
 {
@@ -45,8 +47,8 @@ class RestaurantsController extends AbstractController
             'emailResto'=> $restaurant->getEmail(),
             'webResto'=>$restaurant->getWebsite(),
         ]);
+        
     }
 
-
-    
+  
 }

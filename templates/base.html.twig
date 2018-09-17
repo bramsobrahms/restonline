@@ -9,9 +9,8 @@
             <link rel="stylesheet" href="{{ ('/dist/css/bootstrap.css') }}" />
             <link rel="stylesheet" href="{{ ('/dist/css/bootstrap.min.css') }}" />
             <link rel="stylesheet" href="{{ ('/dist/css/styles.css') }}" />
-            <link rel="stylesheet" href="{{ ('/dist/js/bootstrap.min.js') }}" />
-            <link rel="stylesheet" href="{{ ('/dist/js/bootstrap.js') }}" />
-           
+            <script src="{{ ('/dist/js/bootstrap.min.js') }}"></script>
+            <script src="{{ ('/dist/js/bootstrap.js') }}"></script>           
         {% endblock %}
     </head>
     
@@ -34,6 +33,13 @@
                 </li>
             </ul>
         </div>
+
+        <nav id="search">
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav>
 
         {% block body %} {% endblock %}
 

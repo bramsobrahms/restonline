@@ -4,9 +4,10 @@
 
 
 {% block body %}  
-<div id="imgOneResto">
-        <img class="card-img-top" src="/pictures/{{pictureResto}}.jpg" alt="{{pictureResto}}" id="imgOneResto" />
-    </div>
+    
+    <img class="card-img-top" src="/pictures/{{pictureResto}}.jpg" alt="{{pictureResto}}" id="imgOneResto" />
+    
+    
     <div id="theOneResto">
         <p id ="titleOneResto">
             {{nameResto}}
@@ -31,30 +32,54 @@
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="starter" role="tabpanel" aria-labelledby="nav-home-tab"> There are all starters from this restaurant</div>
-            <div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="nav-profile-tab"> There are all foods from this restaurant </div>
+            <div class="tab-pane fade show active" id="starter" role="tabpanel" aria-labelledby="nav-home-tab"> 
+                
+        
+            </div>
+            <div class="tab-pane fade" id="food" role="tabpanel" aria-labelledby="nav-profile-tab"> 
+                                <table>
+                    <tr>
+                        <td>
+                            <p>miam</p>
+                        </td>
+                        <td>
+                            <p>miam</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>miam</p>
+                        </td>
+                        <td>
+                            <p>miam</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            </div>
             <div class="tab-pane fade" id="dessert" role="tabpanel" aria-labelledby="nav-contact-tab"> There are all desserts from this restaurant </div>
             <div class="tab-pane fade" id="drink" role="tabpanel" aria-labelledby="nav-contact-tab"> There are all drinks from this restaurant </div>
         </div>
     </div>
 
-    <div>
-            <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#starter" role="tab" aria-controls="nav-home" aria-selected="true">Reserver</a>
-                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#navFood" role="tab" aria-controls="nav-profile" aria-selected="false">Sur place</a>
-                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#navDessert" role="tab" aria-controls="nav-contact" aria-selected="false">Emporter</a>
-                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#navDrink" role="tab" aria-controls="nav-contact" aria-selected="false">Livrer</a>
-                </div>
-            </nav>
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="starter" role="tabpanel" aria-labelledby="nav-home-tab"> ... </div>
-                <div class="tab-pane fade" id="navFood" role="tabpanel" aria-labelledby="nav-profile-tab"> ... </div>
-                <div class="tab-pane fade" id="navDessert" role="tabpanel" aria-labelledby="nav-contact-tab"> ... </div>
-                <div class="tab-pane fade" id="navDrink" role="tabpanel" aria-labelledby="nav-contact-tab"> ... </div>
+    <div id="order">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#starter" role="tab" aria-controls="nav-home" aria-selected="true">Reserver</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#navFood" role="tab" aria-controls="nav-profile" aria-selected="false">Sur place</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#navDessert" role="tab" aria-controls="nav-contact" aria-selected="false">Emporter</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#navDrink" role="tab" aria-controls="nav-contact" aria-selected="false">Livrer</a>
             </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="starter" role="tabpanel" aria-labelledby="nav-home-tab"> ... </div>
+            <div class="tab-pane fade" id="navFood" role="tabpanel" aria-labelledby="nav-profile-tab"> ... </div>
+            <div class="tab-pane fade" id="navDessert" role="tabpanel" aria-labelledby="nav-contact-tab"> ... </div>
+            <div class="tab-pane fade" id="navDrink" role="tabpanel" aria-labelledby="nav-contact-tab"> ... </div>
         </div>
+    </div>
 
+    
 {% endblock %}
 
 

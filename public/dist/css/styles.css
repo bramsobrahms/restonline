@@ -39,6 +39,10 @@ a:link, a:visited{
     z-index: 10;
 }
 
+#search{
+    margin-left: 20%;
+}
+
 #footer{
     margin-top:2%;
     background-color: #00CC00;
@@ -88,14 +92,14 @@ a:link, a:visited{
  restaurants/oneResto.html.twig
 */
 #imgOneResto{
-    margin-top: 8%;
+    margin-top: 5%;
     height: 200px;
     width: 315px;
 }
 
 #theOneResto{
-    margin-top: -10.5%;
-    margin-left: 22%
+    margin-top: -175px;
+    margin-left: 350px;
 }
 
 #titleOneResto{
@@ -104,7 +108,14 @@ a:link, a:visited{
     font-style: italic;
 }
 
-#map {
-    height: 30%;
-    width: 40%
-  }
+#foods{
+    margin-top: 5%;
+}
+
+#starter{
+    color:black;
+}
+
+#order{
+    margin-top: 5%;
+}
