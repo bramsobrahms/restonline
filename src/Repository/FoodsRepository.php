@@ -19,7 +19,7 @@ class FoodsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Foods::class);
     }
-
+    
     /*
     public function findOneBySomeField($value): ?Foods
     {

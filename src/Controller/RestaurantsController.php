@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Restaurants;
 use App\Entity\Foods;
+use App\Entity\RestoFoods;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,8 +33,19 @@ class RestaurantsController extends AbstractController
             ->getRepository(Restaurants::class)
             ->find($id);
 
+        $food = $this->getDoctrine()
+            ->getEntityManager()
+            ->getRepository(Foods::class)
+            ->findAll();
+
+        $restoFood = $this->getDoctrine()
+            ->getEntityManager()
+            ->getRepository(RestoFoods::class)
+            ->findAll();
+                    
+
         if(!$restaurant){
-            throw $this->createNotFoundException('restaurant found for id'.$id);
+            throw $this->createNotFoundException('We don\'t found for id'.$id);
         }
         return $this->render('restaurants/oneResto.html.twig', [
             'controller_oneResto' => 'oneResto',
@@ -46,10 +58,11 @@ class RestaurantsController extends AbstractController
             'phoneResto'=> $restaurant->getPhone(),
             'emailResto'=> $restaurant->getEmail(),
             'webResto'=>$restaurant->getWebsite(),
+
+            'foods'=>$food,
+            'restoFoods'=>$restoFood,
         ]);
         
     }
-
-
   
 }

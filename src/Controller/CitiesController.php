@@ -7,13 +7,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CitiesController extends AbstractController
 {
-    /**
-     * @Route("/cities", name="cities")
-     */
-    public function index()
-    {
-        return $this->render('/cities/index.html.twig', [
-            'controller_cities' => 'cities',
-        ]);
-    }
+	/**
+	 * @Route("/cities", name="cities")
+	 */
+	public function index()
+	{
+		return $this->render('/cities/index.html.twig', [
+			'controller_cities' => 'cities',
+		]);
+	}
 }

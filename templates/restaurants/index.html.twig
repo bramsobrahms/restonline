@@ -2,45 +2,48 @@
 
 {% block title %} {{ controller_restaurants }} {% endblock %}
 
-{% block body %}    
-    <div id="slideresto">
-        <h1 id="slideResto"> Il y aura le slide pour trois restaurants </h1>
-    </div>
+{% block body %}
 
-    {% for restaurants in restaurants %}
+	<div id="slideresto">
+		<h1 id="slideResto"> Il y aura le slide pour trois restaurants </h1>
+	</div>
+
+	{% for restaurants in restaurants %}
    
-        <div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">     
-            <div class="card" >
-                <img class="card-img-top" src="pictures/{{restaurants.picture}}.jpg" alt="image du restaurant" id="imgResto" />
-                <div class="card-body">
-                    <h5 class="card-title">{{restaurants.name}}</h5>
-                    <p class="card-text">
-                        {{restaurants.street}} <br />{{restaurants.zipCode}} {{restaurants.city}}
-                        <hr />
-                        Lundi : 10:00 - 15:00  18:00 - 00:00<br />
-                        Mardi : 10:00 - 15:00  18:00 - 00:00<br />
-                        Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
-                        Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
-                        Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
-                        Samedi: 10:00 - 15:00  18:00 - 00:00<br />
-                        Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
-                        <hr />
-                        {{restaurants.phone}}
-                        <hr />
-                        {{restaurants.email}}<br />
-                        <a href="{{restaurants.website}}" target="_blank" id="linkSite"> Official website </a>
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">
-                        <a id="btnHref" href="{{ path('restaurant_id', {'id': restaurants.id}) }}">
-                            Menu
-                        </a>
-                    </small>
-                </div>      
-            </div>
-        </div>
-    {% endfor %}   
-    
+		<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">     
+			<div class="card" >
+
+				<img class="card-img-top" src="pictures/{{restaurants.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+
+				<div class="card-body">
+					<h5 class="card-title">{{restaurants.name}}</h5>
+					<p class="card-text">
+						{{restaurants.street}} <br />{{restaurants.zipCode}} {{restaurants.city}}
+						<hr />
+						Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+						Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+						Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+						Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+						Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+						<hr />
+						{{restaurants.phone}}
+						<hr />
+						{{restaurants.email}}<br />
+						<a href="{{restaurants.website}}" target="_blank" id="linkSite"> Official website </a>
+					</p>
+				</div>
+
+				<div class="card-footer">
+					<small class="text-muted">
+						<a id="btnHref" href="{{ path('restaurant_id', {'id': restaurants.id}) }}">Menu</a>
+					</small>
+				</div> 
+
+			</div>
+		</div>
+	{% endfor %}   
+	
 {% endblock %}
 

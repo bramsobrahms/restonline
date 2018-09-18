@@ -1,52 +1,53 @@
 body{
-    width: 94%;
-    margin: auto;
+	margin: auto;
 }
+
 /*
  This is for the folder templates
  restaurants/base.html.twig
 */
 #homeNav{
-    margin-top: 5%;
-    width: 60%;
-    margin-left: 20%;
+	margin-top: 5%;
+	width: 60%;
+	margin-left: 20%;
 }
 
 #li1{
-    background-color: #00CC00;
-    height: 75px;
+	background-color: #00CC00;
+	height: 75px;
 }
 #li2{
-    background-color: #22CC00;
+	background-color: #22CC00;
 }
 #li3{
-    background-color: #44CC00;
+	background-color: #44CC00;
 }
 #li4{
-    background-color: #66CC00;
+	background-color: #66CC00;
 }
 a:link, a:visited{
-    color: white;
-    font-family: "Arial Black", Times, serif;
-    font-size: 20px;
+	color: white;
+	font-family: "Arial Black", Times, serif;
+	font-size: 20px;
 }
 
 #logo{
-    position: absolute;
-    margin-left: 5%;
-    width: 95px;
-    height: 80px;
-    z-index: 10;
+	position: absolute;
+	margin-left: 5%;
+	width: 95px;
+	height: 80px;
+	z-index: 10;
 }
 
 #search{
-    margin-left: 20%;
+	margin-left: 20%;
 }
 
 #footer{
-    margin-top:2%;
-    background-color: #00CC00;
-    text-align: center;
+	margin-top:2%;
+	background-color: #00CC00;
+	text-align: center;
+	width: 100%
 }
 
 /*
@@ -55,36 +56,36 @@ a:link, a:visited{
 */
 
 #cardResto{
-    margin-top: 3%;
-    margin-left: 1%;
+	margin-top: 3%;
+	margin-left: 2%;
 }
 #imgResto{
-    height: 200px;
-    width: 315px;
+	height: 200px;
+	width: 315px;
 }
 
 /* a supprimer */
 #slideResto{
-    color: red;
-    text-align: center;
+	color: red;
+	text-align: center;
 }
 /* supprimer la bordure */
 #slideresto{
-    margin-left:23%;
-    margin-top: 5%;
-    border: 5px double purple;
-    width: 57%;
-    height: 400px;
+	margin-left:23%;
+	margin-top: 5%;
+	border: 5px double purple;
+	width: 57%;
+	height: 400px;
 }
 
 #linkSite{
-    color:darkgreen;
+	color:darkgreen;
 }
 
 #btnHref{
-    color: #66CC00;
-    margin: 30%;
-    
+	color: #66CC00;
+	margin: 30%;
+	
 }
 
 /*
@@ -92,30 +93,36 @@ a:link, a:visited{
  restaurants/oneResto.html.twig
 */
 #imgOneResto{
-    margin-top: 5%;
-    height: 200px;
-    width: 315px;
+	margin-top: 5%;
+	height: 200px;
+	width: 315px;
 }
 
 #theOneResto{
-    margin-top: -175px;
-    margin-left: 350px;
+	margin-top: -175px;
+	margin-left: 350px;
 }
 
 #titleOneResto{
-    font-size: 1.5em;
-    font-weight: bold;
-    font-style: italic;
+	font-size: 1.5em;
+	font-weight: bold;
+	font-style: italic;
 }
 
 #foods{
-    margin-top: 5%;
+	margin-top: 5%;
+	margin-left: 3%;
+	width: 93%;
+	height: 95%;
 }
 
 #starter{
-    color:black;
+	color:black;
 }
 
 #order{
-    margin-top: 5%;
+	margin-top: 5%;
+	margin-left: 3%;
+	width: 93%;
+	height: 95%;
 }

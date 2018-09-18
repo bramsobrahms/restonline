@@ -21,7 +21,7 @@ class SecurityController extends AbstractController
      */
     public function register(UserHandler $formHandler, Request $request, UserPasswordEncoderInterface $encoder): Response
     {
-        $form = $this->createForm(RegisterType::class);
+    	$form = $this->createForm(RegisterType::class);
 
         if($formHandler->handle($form, $request, $encoder)){
             return $this->redirectToRoute('restaurants');
@@ -29,7 +29,6 @@ class SecurityController extends AbstractController
 
         return $this->render('security/register.html.twig', [ 'form' => $form->createView()]);
     }
-
 
     /**
      * @Route("/login", name="login")
