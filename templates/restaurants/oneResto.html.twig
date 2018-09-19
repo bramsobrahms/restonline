@@ -24,10 +24,10 @@
 	<div id="foods">
 		<nav>
 			<div class="nav nav-tabs" class="nav-tab" role="tablist">
-				<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#starter" role="tab" aria-controls="nav-home" aria-selected="true">starter</a>
-				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#dish" role="tab" aria-controls="nav-profile" aria-selected="false">dish</a>
-				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#drink" role="tab" aria-controls="nav-profile" aria-selected="false">drink</a>
-				<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#dessert" role="tab" aria-controls="nav-contact" aria-selected="false">dessert</a>
+				<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#starter" role="tab" aria-controls="nav-home" aria-selected="true">starters</a>
+				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#dish" role="tab" aria-controls="nav-profile" aria-selected="false">dishs</a>
+				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#drink" role="tab" aria-controls="nav-profile" aria-selected="false">drinks</a>
+				<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#dessert" role="tab" aria-controls="nav-contact" aria-selected="false">desserts</a>
 			</div>
 		</nav>
 		<div class="tab-content" id="nav-tabContent">
@@ -98,5 +98,8 @@
 			</div>
 			</div>
 		</div>
+
+		<button id="btnOrder" type="button" class="btn btn-outline-success" href="{{path('order')}}">Order</button>
+		<button id="btnReviews" type="button" class="btn btn-outline-warning">Reviews</button>
 	
 {% endblock %}

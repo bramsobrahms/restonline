@@ -8,7 +8,7 @@ body{
 */
 #homeNav{
 	margin-top: 5%;
-	width: 60%;
+	width: 70%;
 	margin-left: 20%;
 }
 
@@ -25,6 +25,12 @@ body{
 #li4{
 	background-color: #66CC00;
 }
+#li5{
+	background-color: #FF9900;
+	margin-left: 8%;
+	width: 4%;
+}
+
 a:link, a:visited{
 	color: white;
 	font-family: "Arial Black", Times, serif;
@@ -41,6 +47,7 @@ a:link, a:visited{
 
 #search{
 	margin-left: 20%;
+	color: #FF9900;
 }
 
 #footer{
@@ -122,4 +129,14 @@ a:link, a:visited{
 	margin-left: 3%;
 	width: 93%;
 	height: 95%;
+}
+
+#btnOrder{
+	width: 200px;
+	margin-left:30%;
+}
+
+#btnReviews{
+	width: 200px;
+	margin-left:10%;
 }
