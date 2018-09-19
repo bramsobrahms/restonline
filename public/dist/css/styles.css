@@ -94,13 +94,14 @@ a:link, a:visited{
 */
 #imgOneResto{
 	margin-top: 5%;
+	margin-left: 3%;
 	height: 200px;
 	width: 315px;
 }
 
 #theOneResto{
 	margin-top: -175px;
-	margin-left: 350px;
+	margin-left: 380px;
 }
 
 #titleOneResto{
@@ -116,11 +117,7 @@ a:link, a:visited{
 	height: 95%;
 }
 
-#starter{
-	color:black;
-}
-
-#order{
+#orders{
 	margin-top: 5%;
 	margin-left: 3%;
 	width: 93%;
