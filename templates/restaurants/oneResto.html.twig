@@ -21,7 +21,6 @@
 		</p>
 	</div>
 
-  
 	<div id="foods">
 		<nav>
 			<div class="nav nav-tabs" class="nav-tab" role="tablist">
@@ -31,45 +30,51 @@
 				<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#dessert" role="tab" aria-controls="nav-contact" aria-selected="false">Dessert</a>
 			</div>
 		</nav>
+		
 		<div class="tab-content" id="nav-tabContent">
 			<div class="tab-pane fade show active" id="starter" role="tabpanel" aria-labelledby="nav-home-tab">
-				{% for food in foods %}
-					{% if food.category == 'starter'%}    
-						{{food.name}} 
-						{{food.price}} €<br />
-						{{food.ingredient}}<br />
-					{% endif %}
-				{% endfor %}
+				{% for starter in starters %}
+					{{starter.name}}<br />
+					{{starter.price}}<br />
+					{{starter.ingredient}} <br />
+  				{% endfor %}
 			</div>
-			<div class="tab-pane fade" id="dish" role="tabpanel" aria-labelledby="nav-profile-tab">
-				{% for food in foods %}
-					{% if food.category == 'dish'%}    
-						{{food.name}} 
-						{{food.price}} €<br />
-						{{food.ingredient}}<br />
-					{% endif %}
-				{% endfor %}
+		</div>
+
+		<div class="tab-content" id="nav-tabContent">
+			<div class="tab-pane fade show active" id="dish" role="tabpanel" aria-labelledby="nav-home-tab">
+				{% for dish in dishs %}
+					{{dish.name}}<br />
+					{{dish.price}}<br />
+					{{dish.ingredient}} <br />
+				  {% endfor %}
 			</div>
-			<div class="tab-pane fade" id="drink" role="tabpanel" aria-labelledby="nav-contact-tab">
-				{% for food in foods %}
-					{% if food.category == 'drink'%}    
-						{{food.name}} 
-						{{food.price}} €<br />
-						{{food.ingredient}}<br />
-					{% endif %}
-				{% endfor %}
-			</div>
-			<div class="tab-pane fade" id="dessert" role="tabpanel" aria-labelledby="nav-contact-tab">
-				{% for food in foods %}
-					{% if food.category == 'dessert'%}    
-						{{food.name}} 
-						{{food.price}} €<br />
-						{{food.ingredient}}<br />
-					{% endif %}
+		</div>
+
+		<div class="tab-content" id="nav-tabContent">
+			<div class="tab-pane fade show active" id="drink" role="tabpanel" aria-labelledby="nav-home-tab">
+				{% for drink in drinks %}
+					{{drink.name}}<br />
+					{{drink.price}}<br />
+					{{drink.ingredient}} <br />
 				{% endfor %}
 			</div>
 		</div>
+
+		<div class="tab-content" id="nav-tabContent">
+				<div class="tab-pane fade show active" id="dessert" role="tabpanel" aria-labelledby="nav-home-tab">
+					{% for dessert in desserts %}
+						{{dessert.name}}<br />
+						{{dessert.price}}<br />
+						{{dessert.ingredient}} <br />
+					{% endfor %}
+				</div>
+			</div>
+
+
 	</div>
+
+
 
 	<div id="order">
 		<nav>

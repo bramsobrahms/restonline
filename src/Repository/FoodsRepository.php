@@ -19,16 +19,62 @@ class FoodsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Foods::class);
     }
-    
-    /*
-    public function findOneBySomeField($value): ?Foods
+
+    public function findStarter($id): array
     {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            "SELECT  f.name, f.category, f.price, f.ingredient
+            FROM App\Entity\Foods f, App\Entity\Restaurants r, App\Entity\RestoFoods rf
+            WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.category = 'starter' and r.id = :id
+        ")->setParameter('id', $id);
+
+        // returns an array of starter objects
+        return $query->execute();
     }
-    */
+
+    public function findDish($id): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            "SELECT  f.name, f.category, f.price, f.ingredient
+            FROM App\Entity\Foods f, App\Entity\Restaurants r, App\Entity\RestoFoods rf
+            WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.category = 'dish' and r.id = :id
+        ")->setParameter('id', $id);
+
+        // returns an array of dish objects
+        return $query->execute();
+    }
+
+    public function findDrink($id): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            "SELECT  f.name, f.category, f.price, f.ingredient
+            FROM App\Entity\Foods f, App\Entity\Restaurants r, App\Entity\RestoFoods rf
+            WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.category = 'drink' and r.id = :id
+        ")->setParameter('id', $id);
+
+        // returns an array of drink objects
+        return $query->execute();
+    }
+
+    public function findDessert($id): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            "SELECT  f.name, f.category, f.price, f.ingredient
+            FROM App\Entity\Foods f, App\Entity\Restaurants r, App\Entity\RestoFoods rf
+            WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.category = 'dessert' and r.id = :id
+        ")->setParameter('id', $id);
+
+        // returns an array of dessert objects
+        return $query->execute();
+    }
+    
+
 }

@@ -33,16 +33,25 @@ class RestaurantsController extends AbstractController
             ->getRepository(Restaurants::class)
             ->find($id);
 
-        $food = $this->getDoctrine()
-            ->getEntityManager()
-            ->getRepository(Foods::class)
-            ->findAll();
+           // $id = $restaurant->getId();
 
-        $restoFood = $this->getDoctrine()
-            ->getEntityManager()
-            ->getRepository(RestoFoods::class)
-            ->findAll();
-                    
+            $starters = $this->getDoctrine()
+                ->getRepository(Foods::class)
+                ->findStarter($id);
+
+            $dishs = $this->getDoctrine()
+                ->getRepository(Foods::class)
+                ->findDish($id);
+
+            $drinks = $this->getDoctrine()
+                ->getRepository(Foods::class)
+                ->findDrink($id);
+            
+            $desserts = $this->getDoctrine()
+                ->getRepository(Foods::class)
+                ->findDessert($id);
+                
+          
 
         if(!$restaurant){
             throw $this->createNotFoundException('We don\'t found for id'.$id);
@@ -50,6 +59,7 @@ class RestaurantsController extends AbstractController
         return $this->render('restaurants/oneResto.html.twig', [
             'controller_oneResto' => 'oneResto',
             
+            'id'=>$id,
             'pictureResto'=> $restaurant->getPicture(),
             'nameResto'=> $restaurant->getName(),
             'streetResto'=> $restaurant->getStreet(),
@@ -59,8 +69,11 @@ class RestaurantsController extends AbstractController
             'emailResto'=> $restaurant->getEmail(),
             'webResto'=>$restaurant->getWebsite(),
 
-            'foods'=>$food,
-            'restoFoods'=>$restoFood,
+            'starters'=> $starters,
+            'dishs'=> $dishs,
+            'drinks'=>$drinks,
+            'desserts'=>$desserts,
+
         ]);
         
     }
