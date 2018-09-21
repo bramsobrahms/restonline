@@ -41,6 +41,11 @@ class Foods
      */
     private $picture;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $speciality_id;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,4 +110,17 @@ class Foods
 
         return $this;
     }
+
+    public function getSpecialityId(): ?int
+    {
+        return $this->speciality_id;
+    }
+
+    public function setSpecialityId(int $speciality_id): self
+    {
+        $this->speciality_id = $speciality_id;
+
+        return $this;
+    }
+
 }

@@ -25,7 +25,7 @@ class FoodsRepository extends ServiceEntityRepository
         $entityManager = $this->getEntityManager();
 
         $query = $entityManager->createQuery(
-            "SELECT  f.name, f.category, f.price, f.ingredient
+            "SELECT  f.name, f.category, f.price, f.ingredient, f.picture
             FROM App\Entity\Foods f, App\Entity\Restaurants r, App\Entity\RestoFoods rf
             WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.category = 'starter' and r.id = :id
         ")->setParameter('id', $id);
@@ -39,7 +39,7 @@ class FoodsRepository extends ServiceEntityRepository
         $entityManager = $this->getEntityManager();
 
         $query = $entityManager->createQuery(
-            "SELECT  f.name, f.category, f.price, f.ingredient
+            "SELECT  f.name, f.category, f.price, f.ingredient, f.picture
             FROM App\Entity\Foods f, App\Entity\Restaurants r, App\Entity\RestoFoods rf
             WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.category = 'dish' and r.id = :id
         ")->setParameter('id', $id);
@@ -53,7 +53,7 @@ class FoodsRepository extends ServiceEntityRepository
         $entityManager = $this->getEntityManager();
 
         $query = $entityManager->createQuery(
-            "SELECT  f.name, f.category, f.price, f.ingredient
+            "SELECT  f.name, f.category, f.price, f.ingredient, f.picture
             FROM App\Entity\Foods f, App\Entity\Restaurants r, App\Entity\RestoFoods rf
             WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.category = 'drink' and r.id = :id
         ")->setParameter('id', $id);
@@ -67,7 +67,7 @@ class FoodsRepository extends ServiceEntityRepository
         $entityManager = $this->getEntityManager();
 
         $query = $entityManager->createQuery(
-            "SELECT  f.name, f.category, f.price, f.ingredient
+            "SELECT  f.name, f.category, f.price, f.ingredient, f.picture
             FROM App\Entity\Foods f, App\Entity\Restaurants r, App\Entity\RestoFoods rf
             WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.category = 'dessert' and r.id = :id
         ")->setParameter('id', $id);

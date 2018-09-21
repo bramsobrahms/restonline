@@ -3,5 +3,130 @@
 {% block title %} {{controller_countries }}{% endblock %}
 
 {% block body %}
-	<p> on verra les restaurants avec les différent pays</p>
+
+	<h2 class="titleCountry"><img class="flag" src="/pictures/belgium.gif"/>Belgian<img class="flag" src="/pictures/belgium.gif"/></h2>
+	
+	{% for countryResto in theCountryResto %}
+		<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
+			<div class="card" >
+				
+				<img class="card-img-top" src="pictures/{{countryResto.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+
+				<div class="card-body">
+					<h5 class="card-title">{{countryResto.name}}</h5>
+					<p class="card-text">
+						{{countryResto.street}} <br />{{countryResto.zip_code}} {{countryResto.city}}
+						<hr />
+						Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+						Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+						Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+						Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+						Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+						<hr />
+						{{countryResto.phone}}
+						<hr />
+						<a href="{{countryResto.website}}" target="_blank" id="linkSite"> Official website </a>
+					</p>
+				</div>
+
+				<div class="card-footer">
+					<small class="text-muted">
+						<a id="btnHref" href="{{ path('restaurant_id', {'id': countryResto.id}) }}">Menu</a>
+					</small>
+				</div> 
+
+			</div>
+		</div>
+	{% endfor %}
+
+	<div class="btnCountry"> 
+		<a href="{{path('allCountries')}}" style="color: black" role="button"><img class="flag" src="/pictures/more.gif"/>More</a>
+	</div>
+
+
+	<h2 class="titleCountry"><img class="flag" src="/pictures/italian.gif"/>Italian<img class="flag" src="/pictures/italian.gif"/></h2>
+	
+	{% for countryResto in theCountryResto1 %}
+		<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
+			<div class="card" >
+				
+				<img class="card-img-top" src="pictures/{{countryResto.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+
+				<div class="card-body">
+					<h5 class="card-title">{{countryResto.name}}</h5>
+					<p class="card-text">
+						{{countryResto.street}} <br />{{countryResto.zip_code}} {{countryResto.city}}
+						<hr />
+						Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+						Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+						Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+						Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+						Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+						<hr />
+						{{countryResto.phone}}
+						<hr />
+						<a href="{{countryResto.website}}" target="_blank" id="linkSite"> Official website </a>
+					</p>
+				</div>
+
+				<div class="card-footer">
+					<small class="text-muted">
+						<a id="btnHref" href="{{ path('restaurant_id', {'id': countryResto.id}) }}">Menu</a>
+					</small>
+				</div> 
+
+			</div>
+		</div>
+	{% endfor %}
+
+	<div class="btnCountry"> 
+		<a href="#" style="color: black" role="button"><img class="flag" src="/pictures/more.gif"/>More</a>
+	</div>
+
+	<h2 class="titleCountry"><img class="flag" src="/pictures/american.gif"/>American<img class="flag" src="/pictures/american.gif"/></h2>
+	
+	{% for countryResto in theCountryResto2 %}
+		<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
+			<div class="card" >
+				
+				<img class="card-img-top" src="pictures/{{countryResto.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+
+				<div class="card-body">
+					<h5 class="card-title">{{countryResto.name}}</h5>
+					<p class="card-text">
+						{{countryResto.street}} <br />{{countryResto.zip_code}} {{countryResto.city}}
+						<hr />
+						Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+						Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+						Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+						Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+						Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+						<hr />
+						{{countryResto.phone}}
+						<hr />
+						<a href="{{countryResto.website}}" target="_blank" id="linkSite"> Official website </a>
+					</p>
+				</div>
+
+				<div class="card-footer">
+					<small class="text-muted">
+						<a id="btnHref" href="{{ path('restaurant_id', {'id': countryResto.id}) }}">Menu</a>
+					</small>
+				</div> 
+
+			</div>
+		</div>
+	{% endfor %}
+
+	<div class="btnCountry"> 
+		<a href="#" style="color: black" role="button"><img class="flag" src="/pictures/more.gif"/>More</a>
+	</div>
+
+
 {% endblock %}

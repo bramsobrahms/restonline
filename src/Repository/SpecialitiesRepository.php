@@ -19,32 +19,65 @@ class SpecialitiesRepository extends ServiceEntityRepository
         parent::__construct($registry, Specialities::class);
     }
 
-//    /**
-//     * @return Specialities[] Returns an array of Specialities objects
-//     */
-    /*
-    public function findByExampleField($value)
+    public function findCountry(): array
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $entityManager = $this->getEntityManager();
 
-    /*
-    public function findOneBySomeField($value): ?Specialities
-    {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $query = $entityManager->createQuery("
+            SELECT DISTINCT r.id, r.picture, r.name, r.street, r.zip_code, r.city, r.phone, r.email, r.website, s.country
+            FROM App\Entity\Restaurants r, App\Entity\Foods f, App\Entity\RestoFoods rf, App\Entity\Specialities s
+            WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.speciality_id = s.id AND s.country='Belgian'            
+        ");
+
+        // returns an array of starter objects
+        return $query->setMaxResults(8)->execute();
     }
-    */
+
+    public function findCountry1(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery("
+            SELECT DISTINCT r.id, r.picture, r.name, r.street, r.zip_code, r.city, r.phone, r.email, r.website, s.country
+            FROM App\Entity\Restaurants r, App\Entity\Foods f, App\Entity\RestoFoods rf, App\Entity\Specialities s
+            WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.speciality_id = s.id AND s.country='Italian'            
+        ");
+
+        // returns an array of starter objects
+        return $query->setMaxResults(8)->execute();
+    }
+
+    public function findCountry2(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery("
+            SELECT DISTINCT r.id, r.picture, r.name, r.street, r.zip_code, r.city, r.phone, r.email, r.website, s.country
+            FROM App\Entity\Restaurants r, App\Entity\Foods f, App\Entity\RestoFoods rf, App\Entity\Specialities s
+            WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.speciality_id = s.id AND s.country='American'            
+        ");
+
+        // returns an array of starter objects
+        return $query->setMaxResults(8)->execute();
+    }
+
+
+
+
+
+
+    public function findAllCountry(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery("
+            SELECT DISTINCT r.id, r.picture, r.name, r.street, r.zip_code, r.city, r.phone, r.email, r.website, s.country
+            FROM App\Entity\Restaurants r, App\Entity\Foods f, App\Entity\RestoFoods rf, App\Entity\Specialities s
+            WHERE r.id = rf.restaurant_id AND rf.food_id = f.id AND f.speciality_id = s.id AND s.country='Belgian'            
+        ");
+
+        // returns an array of starter objects
+        return $query->execute();
+    }
+
 }
