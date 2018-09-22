@@ -148,6 +148,7 @@ a:link, a:visited{
 	width: 200px;
 	margin-left:10%;
 }
+
 /*
  This is for the template
  countries/index.html.twig
@@ -161,4 +162,14 @@ a:link, a:visited{
 .btnCountry {
 	margin-top:3%;
 	margin-left: 45%;
+}
+
+/*
+ This is for the template
+ cities/index.html.twig
+*/
+#cityTitle
+{
+	margin-top:3%;
+	text-align: center;
 }

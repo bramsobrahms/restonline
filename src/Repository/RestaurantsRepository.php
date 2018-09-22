@@ -19,32 +19,18 @@ class RestaurantsRepository extends ServiceEntityRepository
         parent::__construct($registry, Restaurants::class);
     }
 
-//    /**
-//     * @return Restaurants[] Returns an array of Restaurants objects
-//     */
-    /*
-    public function findByExampleField($value)
+    public function findByCity()
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $entityManager = $this->getEntityManager();
 
-    /*
-    public function findOneBySomeField($value): ?Restaurants
-    {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $query = $entityManager->createQuery("
+            SELECT DISTINCT r.id, r.picture, r.name, r.street, r.zip_code, r.city, r.phone, r.email, r.website
+            FROM App\Entity\Restaurants r          
+        ");
+
+        // returns an array of starter objects
+        return $query->execute();
     }
-    */
+
+
 }
