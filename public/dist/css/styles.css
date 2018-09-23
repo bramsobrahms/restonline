@@ -158,7 +158,6 @@ a:link, a:visited{
 	text-align: center;
 }
 
-
 .btnCountry {
 	margin-top:3%;
 	margin-left: 45%;
@@ -171,5 +170,95 @@ a:link, a:visited{
 #cityTitle
 {
 	margin-top:3%;
-	text-align: center;
+	margin-left: 5%;
+}
+
+/*
+ This is for the folder template
+ type/index.html.twig
+*/
+#btns{
+	margin-top: 4%;
+	margin-left: 35%;
+}
+
+#titleVeg{
+	color: green;
+	margin-top:2%;
+	margin-left: 5%;
+}
+#titleMeat{
+	color: red;
+	margin-top:2%;
+	margin-left: 5%;
+}
+#titleFish{
+	color: blue;
+	margin-top:2%;
+	margin-left: 5%;
+}
+
+#dietVeg{
+	color:green;
+}
+#dietMeat{
+	color:red;
+}
+#dietFish{
+	color:blue;
+}
+
+#btnVege{
+    background-color: white; 
+    color: green;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border: 2px solid green;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#btnMeat{
+    background-color: white; 
+    color: red;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border: 2px solid red;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#btnFish{
+    background-color: white; 
+    color: blue;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border: 2px solid blue;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#backVeg{
+	background-image: url('../../pictures/bcgV.jpg');
+}
+#backMeat{
+	background-image: url('../../pictures/bcgM.jpg');
+}
+#backFish{
+	background-image: url('../../pictures/bcgF.jpg');
 }
