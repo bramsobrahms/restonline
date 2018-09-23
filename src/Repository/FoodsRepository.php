@@ -76,5 +76,4 @@ class FoodsRepository extends ServiceEntityRepository
         return $query->execute();
     }
     
-
 }

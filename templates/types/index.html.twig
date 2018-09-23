@@ -3,5 +3,122 @@
 {% block title %}Hello {{ controller_types }}!{% endblock %}
 
 {% block body %}
-	<p>Différent types de plat</p>
+
+	<div id="vege">
+		<h1>Vege</h1>
+	{% for typeVeg in typeVeg %}
+		<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
+			<div class="card" >
+
+				<img class="card-img-top" src="pictures/{{typeVeg.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+
+				<div class="card-body">
+					<h5 class="card-title">{{typeVeg.name}}</h5>
+					<p class="card-text">
+						{{typeVeg.street}} <br />{{typeVeg.zip_code}} {{typeVeg.city}}
+						<hr />
+						Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+						Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+						Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+						Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+						Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+						<hr />
+						{{typeVeg.phone}}
+						<hr />
+						{{typeVeg.email}}<br />
+						<a href="{{typeVeg.website}}" target="_blank" id="linkSite"> Official website </a>
+					</p>
+				</div>
+
+				<div class="card-footer">
+					<small class="text-muted">
+						<a id="btnHref" href="{{ path('restaurant_id', {'id': typeVeg.id}) }}">Menu</a>
+					</small>
+				</div> 
+
+			</div>
+		</div>
+	{% endfor %}
+	</div>
+
+	<div id="meat">
+			<h1>Meat</h1>
+		{% for typeMeat in typeMeat %}
+			<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
+				<div class="card" >
+	
+					<img class="card-img-top" src="pictures/{{typeMeat.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+	
+					<div class="card-body">
+						<h5 class="card-title">{{typeMeat.name}}</h5>
+						<p class="card-text">
+							{{typeMeat.street}} <br />{{typeMeat.zip_code}} {{typeMeat.city}}
+							<hr />
+							Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+							Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+							Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+							Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+							Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+							Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+							Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+							<hr />
+							{{typeMeat.phone}}
+							<hr />
+							{{typeMeat.email}}<br />
+							<a href="{{typeMeat.website}}" target="_blank" id="linkSite"> Official website </a>
+						</p>
+					</div>
+	
+					<div class="card-footer">
+						<small class="text-muted">
+							<a id="btnHref" href="{{ path('restaurant_id', {'id': typeMeat.id}) }}">Menu</a>
+						</small>
+					</div> 
+	
+				</div>
+			</div>
+		{% endfor %}
+		</div>
+
+		<div id="fish">
+				<h1>Fish</h1>
+			{% for typeFish in typeFish %}
+				<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
+					<div class="card" >
+		
+						<img class="card-img-top" src="pictures/{{typeFish.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+		
+						<div class="card-body">
+							<h5 class="card-title">{{typeFish.name}}</h5>
+							<p class="card-text">
+								{{typeFish.street}} <br />{{typeFish.zip_code}} {{typeFish.city}}
+								<hr />
+								Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+								Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+								Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+								Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+								Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+								Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+								Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+								<hr />
+								{{typeFish.phone}}
+								<hr />
+								{{typeFish.email}}<br />
+								<a href="{{typeFish.website}}" target="_blank" id="linkSite"> Official website </a>
+							</p>
+						</div>
+		
+						<div class="card-footer">
+							<small class="text-muted">
+								<a id="btnHref" href="{{ path('restaurant_id', {'id': typeFish.id}) }}">Menu</a>
+							</small>
+						</div> 
+		
+					</div>
+				</div>
+			{% endfor %}
+			</div>
+
 {% endblock %}

@@ -61,11 +61,6 @@ class SpecialitiesRepository extends ServiceEntityRepository
         return $query->setMaxResults(8)->execute();
     }
 
-
-
-
-
-
     public function findAllCountry(): array
     {
         $entityManager = $this->getEntityManager();
@@ -77,6 +72,53 @@ class SpecialitiesRepository extends ServiceEntityRepository
         ");
 
         // returns an array of starter objects
+        return $query->execute();
+    }
+
+
+
+
+
+
+    public function findByTypeVeg(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            "SELECT r.id, r.picture, r.name, r.street, r.zip_code, r.city, r.phone, r.email, r.website
+            FROM App\Entity\Restaurants r, App\Entity\Foods f, App\Entity\Specialities s, App\Entity\RestoFoods rf
+            WHERE r.id = rf.id AND rf.food_id = f.id AND f.speciality_id = s.id AND s.category = 'vegetable'
+        ");
+
+        // returns an array of drink objects
+        return $query->execute();
+    }
+
+    public function findByTypeMeat(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            "SELECT r.id, r.picture, r.name, r.street, r.zip_code, r.city, r.phone, r.email, r.website
+            FROM App\Entity\Restaurants r, App\Entity\Foods f, App\Entity\Specialities s, App\Entity\RestoFoods rf
+            WHERE r.id = rf.id AND rf.food_id = f.id AND f.speciality_id = s.id AND s.category = 'meat'
+        ");
+
+        // returns an array of drink objects
+        return $query->execute();
+    }
+
+    public function findByTypeFish(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            "SELECT r.id, r.picture, r.name, r.street, r.zip_code, r.city, r.phone, r.email, r.website
+            FROM App\Entity\Restaurants r, App\Entity\Foods f, App\Entity\Specialities s, App\Entity\RestoFoods rf
+            WHERE r.id = rf.id AND rf.food_id = f.id AND f.speciality_id = s.id AND s.category = 'fish'
+        ");
+
+        // returns an array of drink objects
         return $query->execute();
     }
 
