@@ -77,5 +77,5 @@ class RestaurantsController extends AbstractController
         ]);
         
     }
-  
+
 }

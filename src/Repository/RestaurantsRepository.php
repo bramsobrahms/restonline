@@ -31,6 +31,4 @@ class RestaurantsRepository extends ServiceEntityRepository
         // returns an array of starter objects
         return $query->execute();
     }
-
-
 }
