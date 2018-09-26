@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class ContactController extends AbstractController
 {
     /**
@@ -54,7 +55,7 @@ class ContactController extends AbstractController
         // In this case we'll use the ZOHO mail services.
         // If your service is another, then read the following article to know which smpt code to use and which port
         // http://ourcodeworld.com/articles/read/14/swiftmailer-send-mails-from-php-easily-and-effortlessly
-        $transport = \Swift_SmtpTransport::newInstance('smtp.zoho.com', 465,'ssl')
+        $transport = \Swift_SmtpTransport::newInstance('localhost', 25)
             ->setUsername($myappContactMail)
             ->setPassword($myappContactPassword);
 

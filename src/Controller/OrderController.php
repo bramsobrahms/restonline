@@ -30,15 +30,15 @@ class OrderController extends AbstractController
         $token = $_POST['stripeToken'];
 
         $charge = \Stripe\Charge::create([
-            'amount' => 2000,
+            'amount' => 500,
             'currency' => 'eur',
-            'description' => 'test1',
+            'description' => 'resto.name',
             'source' => $token,
             'statement_descriptor' => 'Jean',
             'metadata' => ['order_id' => 6735],
         ]);
 
-        return $this->render('order/index.html.twig');
+        return $this->render('order/proof.html.twig');
 
     }
 

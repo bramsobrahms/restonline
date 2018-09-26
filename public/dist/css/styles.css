@@ -290,7 +290,7 @@ td{
  type/index.html.twig
 */
 #Formcontact{
-	margin-left:auto;
+	text-align: center;
 }
 
 #titleForm{
@@ -300,7 +300,9 @@ td{
 .h6form{
 	margin-top:1%;
 }
+
 #captcha{
 	margin-top:1.5%;
 	margin-bottom:1.5%;
+	margin-left: 40%;
 }
