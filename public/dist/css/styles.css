@@ -140,11 +140,11 @@ a:link, a:visited{
 
 #imgfood{
 	width:100px;
-	margin-top:2%;
+	margin-top:7%;
 	margin-left: 1%;
 }
 
-#divStarter{
+#divFood{
 	border: solid 1px black;
 	display:inline-block;
 	margin-left: 2px;
@@ -283,4 +283,24 @@ td{
 }
 #backFish{
 	background-image: url('../../pictures/bcgF.jpg');
+}
+
+/*
+ This is for the folder template
+ type/index.html.twig
+*/
+#Formcontact{
+	margin-left:auto;
+}
+
+#titleForm{
+	margin-top:8%;
+}
+
+.h6form{
+	margin-top:1%;
+}
+#captcha{
+	margin-top:1.5%;
+	margin-bottom:1.5%;
 }

@@ -12,70 +12,60 @@ use Symfony\Component\HttpFoundation\Request;
 
 class RestaurantsController extends AbstractController
 {
-    /**
-     * @Route("/", name="restaurants")
-     */
-    public function index()
-    {
-        $restaurants= $this->getDoctrine()->getRepository
-        (Restaurants::class)->findAll();
+	/**
+	 * @Route("/", name="restaurants")
+	 */
+	public function index()
+	{
+		$restaurants= $this->getDoctrine()->getRepository
+		(Restaurants::class)->findAll();
 
-        //return new Response('Restaurant: '.$restaurant->getName());
-        return $this->render('restaurants/index.html.twig', array('restaurants' => $restaurants));
-    }
+		//return new Response('Restaurant: '.$restaurant->getName());
+		return $this->render('restaurants/index.html.twig', array('restaurants' => $restaurants));
+	}
 
-    /**
-     * @Route("/restaurant/{id}", name="restaurant_id")
-     */
-    public function showRestaurant($id)
-    {
-        $restaurant = $this->getDoctrine()
-            ->getRepository(Restaurants::class)
-            ->find($id);
+	/**
+	 * @Route("/restaurant/{id}", name="restaurant_id")
+	 */
+	public function showRestaurant($id)
+	{
+		$resto = $this->getDoctrine()
+			->getRepository(Restaurants::class)
+			->findByresto($id);
 
-           // $id = $restaurant->getId();
+		   // $id = $restaurant->getId();
 
-            $starters = $this->getDoctrine()
-                ->getRepository(Foods::class)
-                ->findStarter($id);
+		$starters = $this->getDoctrine()
+			->getRepository(Foods::class)
+			->findStarter($id);
 
-            $dishs = $this->getDoctrine()
-                ->getRepository(Foods::class)
-                ->findDish($id);
+		$dishs = $this->getDoctrine()
+			->getRepository(Foods::class)
+			->findDish($id);
 
-            $drinks = $this->getDoctrine()
-                ->getRepository(Foods::class)
-                ->findDrink($id);
-            
-            $desserts = $this->getDoctrine()
-                ->getRepository(Foods::class)
-                ->findDessert($id);
-                
-          
+		$drinks = $this->getDoctrine()
+			->getRepository(Foods::class)
+			->findDrink($id);
+		
+		$desserts = $this->getDoctrine()
+			->getRepository(Foods::class)
+			->findDessert($id);
+				
+		  
 
-        if(!$restaurant){
-            throw $this->createNotFoundException('We don\'t found for id'.$id);
-        }
-        return $this->render('restaurants/oneResto.html.twig', [
-            'controller_oneResto' => 'oneResto',
-            
-            'id'=>$id,
-            'pictureResto'=> $restaurant->getPicture(),
-            'nameResto'=> $restaurant->getName(),
-            'streetResto'=> $restaurant->getStreet(),
-            'zipCodeResto'=> $restaurant->getZipCode(),
-            'cityResto'=> $restaurant->getCity(),
-            'phoneResto'=> $restaurant->getPhone(),
-            'emailResto'=> $restaurant->getEmail(),
-            'webResto'=>$restaurant->getWebsite(),
+	
 
-            'starters'=> $starters,
-            'dishs'=> $dishs,
-            'drinks'=>$drinks,
-            'desserts'=>$desserts,
+		return $this->render('restaurants/oneResto.html.twig', [
+			'controller_oneResto' => 'oneResto',
+			
+			'resto'=>$resto,
+			'starters'=> $starters,
+			'dishs'=> $dishs,
+			'drinks'=>$drinks,
+			'desserts'=>$desserts,
 
-        ]);
-        
-    }
+		]);
+		
+	}
 
 }

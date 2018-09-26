@@ -4,24 +4,25 @@
 
 
 {% block body %}  
-	
-	<img class="card-img-top" src="/pictures/{{pictureResto}}.jpg" alt="{{pictureResto}}" id="imgOneResto" />
-	
+	{% for resto in resto %}	
+		<img class="card-img-top" src="/pictures/{{resto.picture}}.jpg" alt="{{resto.picture}}" id="imgOneResto" />
 	
 	<div id="theOneResto">
 		<p id ="titleOneResto">
-			{{nameResto}}
+				{{resto.name}}
 		</p>
 		<p>
-			{{streetResto}} <br />{{zipCodeResto}} {{cityResto}}
+				{{resto.street}} <br />{{resto.zip_code}} {{resto.city}}
 		</p>
 		<p>
-			Tél: {{phoneResto}}<br />
-			Mail: {{emailResto}}
+				Tél: {{resto.phone}}<br />
+				Mail: {{resto.email}}
 		</p>
 	</div>
+	{% endfor %}
 
 	<div id="foods">
+			<form action = "{{ path('addBasket') }}" methode="get">
 		<nav>
 			<div class="nav nav-tabs" class="nav-tab" role="tablist">
 				<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#starter" role="tab" aria-controls="nav-home" aria-selected="true">starters</a>
@@ -35,56 +36,75 @@
 			<div class="tab-pane fade show active" id="starter" role="tabpanel" aria-labelledby="nav-home-tab">
 				
 				{% for starter in starters %}
-					<div id="divStarter">
-						<img class="card-img-top" src="/pictures/{{starter.picture}}.jpg" alt="{{starter.picture}}" id="imgfood" />
-						<b>{{starter.name}}</b><br />
-						{{starter.ingredient}} <br />
-						<table id="tabStarter">
-							<tr>
-								<th colspan="3" style="width: 50px;">{{starter.price}} €</th>
-							</tr>
-							<tr>
-								<td>0</td>
-								<td><b>+</b></td>
-								<td><b>-</b></td>
-							</tr>
+				
+					<div id="divFood">
+						<div>
+							<img class="card-img-top" src="/pictures/{{starter.picture}}.jpg" alt="{{starter.picture}}" id="imgfood" />
+							<h6><b>{{starter.name}}</b></6>
+							<p>{{starter.ingredient}}</p>
+						</div>
 							
-						</table>
+						{{starter.price}} €<br />
+						<select name="qty" class="span1">
+							{% for i in 0..10 %}
+							<option value="{{i}}">{{i}}</option>
+							{% endfor %}
+						</select>
+
 					</div>
+				
+
 				{% endfor %}
 
 			</div>
 			<div class="tab-pane fade" id="dish" role="tabpanel" aria-labelledby="nav-profile-tab">
 				
 				{% for dish in dishs %}
-					<img class="card-img-top" src="/pictures/{{dish.picture}}.jpg" alt="{{dish.picture}}" id="imgfood" />	
-					{{dish.name}}<br />
-					{{dish.ingredient}} <br />
-					{{dish.price}} €<br />
+				<div id="divFood">
+						<div>
+							<img class="card-img-top" src="/pictures/{{dish.picture}}.jpg" alt="{{dish.picture}}" id="imgfood" />
+							<h6><b>{{dish.name}}</b></6>
+							<p>{{dish.ingredient}}</p>
+						</div>
+						
+						{{dish.price}} €<br />
+						</div>
 				{% endfor %}
 	
 			</div>
 			<div class="tab-pane fade" id="drink" role="tabpanel" aria-labelledby="nav-contact-tab">
 				
 				{% for drink in drinks %}
-					<img class="card-img-top" src="/pictures/{{drink.picture}}.jpg" alt="{{drink.picture}}" id="imgfood" />
-					{{drink.name}}<br />
-					{{drink.price}} €<br />
-					{{drink.ingredient}} <br />
+				<div id="divFood">
+						<div>
+							<img class="card-img-top" src="/pictures/{{drink.picture}}.jpg" alt="{{drink.picture}}" id="imgfood" />
+							<h6><b>{{drink.name}}</b></6>
+							<p>{{drink.ingredient}}</p>
+						</div>
+						
+						{{drink.price}} €<br />
+						
+					</div>
 				{% endfor %}
 
 			</div>
 			<div class="tab-pane fade" id="dessert" role="tabpanel" aria-labelledby="nav-contact-tab">
 				
 				{% for dessert in desserts %}
-					<img class="card-img-top" src="/pictures/{{dessert.picture}}.jpg" alt="{{dessert.picture}}" id="imgfood" />	
-					{{dessert.name}}<br />
-					{{dessert.price}} €<br />
-					{{dessert.ingredient}} <br />
+				<div id="divFood">
+						<div>
+							<img class="card-img-top" src="/pictures/{{dessert.picture}}.jpg" alt="{{dessert.picture}}" id="imgfood" />
+							<h6><b>{{dessert.name}}</b></6>
+							<p>{{dessert.ingredient}}</p>
+						</div>
+						
+						{{dessert.price}} €<br />
+						</div>
 				{% endfor %}
 		
 			</div>
 		</div>
+	
 	</div>
 
 	<div id="orders">
@@ -114,8 +134,10 @@
 			</div>
 			</div>
 		</div>
+	</div>
 
-		<button id="btnOrder" type="button" class="btn btn-outline-success" href="{{path('order')}}">Order</button>
-		<button id="btnReviews" type="button" class="btn btn-outline-warning">Reviews</button>
+	<button id="btnOrder" class="btn btn-outline-success">Order</button>	
+	</form>
+	<button id="btnReviews" type="button" class="btn btn-outline-warning">Reviews</button>
 	
 {% endblock %}

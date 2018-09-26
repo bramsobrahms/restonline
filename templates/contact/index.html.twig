@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+    
+    <div id="Formcontact">
+        
+        <h1 id="titleForm">Contact form</h1>
+        {{ form_start(form) }}
+
+            <h6 class="h6form">Subject: </h6>
+            <div>
+                {{ form_widget(form.subject) }}
+                {{ form_errors(form.subject) }}
+            </div>
+            <h6 class="h6form">Name: </h6>
+            <div>
+                {{ form_widget(form.name) }}
+                {{ form_errors(form.name) }}
+            </div>
+            <h6 class="h6form">Email: </h6>
+            <div>
+                {{ form_widget(form.email) }}
+                {{ form_errors(form.email) }}
+            </div>
+            <h6 class="h6form">Message: </h6>
+            <div>
+                {{ form_widget(form.message) }}
+                {{ form_errors(form.message) }}
+            </div>
+
+            {# Render CSRF token etc .#}
+            <div style="display:none">
+                {{ form_rest(form) }}
+            </div>
+            <div id="captcha" class="g-recaptcha" data-sitekey="6LdGJXIUAAAAAGPWz7I7kd1eXY7HX59Qc_IIWA0-"></div>
+            <input type="submit" value="Submit">
+            
+        {{ form_end(form) }}
+    <div>
+    
+{% endblock %}

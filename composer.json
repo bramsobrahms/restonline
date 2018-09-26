@@ -7,14 +7,18 @@
         "ext-iconv": "*",
         "doctrine/annotations": "^1.6",
         "easycorp/easyadmin-bundle": "^1.17",
+        "google/recaptcha": "^1.2",
         "sensio/framework-extra-bundle": "^5.2",
         "sonata-project/admin-bundle": "^3.39",
         "sonata-project/doctrine-orm-admin-bundle": "^3.6",
+        "stripe/stripe-php": "4.*",
+        "swiftmailer/swiftmailer": "^6.0",
         "symfony/asset": "*",
         "symfony/expression-language": "*",
         "symfony/flex": "^1.1",
         "symfony/form": "*",
         "symfony/framework-bundle": "*",
+        "symfony/http-foundation": "*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/orm-pack": "^1.0",
         "symfony/process": "*",
@@ -29,8 +33,7 @@
         "symfony/web-profiler-bundle": "*",
         "symfony/web-server-bundle": "*",
         "symfony/webpack-encore-pack": "^1.0",
-        "symfony/yaml": "*",
-        "stripe/stripe-php": "4.*"
+        "symfony/yaml": "*"
     },
     "require-dev": {
         "sensiolabs/security-checker": "^4.1",

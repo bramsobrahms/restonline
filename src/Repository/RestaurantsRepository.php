@@ -19,6 +19,21 @@ class RestaurantsRepository extends ServiceEntityRepository
         parent::__construct($registry, Restaurants::class);
     }
 
+    public function findByresto($id)
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery("
+            SELECT DISTINCT r.id, r.picture, r.name, r.street, r.zip_code, r.city, r.phone, r.email
+            FROM App\Entity\Restaurants r
+            WHERE r.id = :id          
+        ")->setParameter('id', $id);
+
+        // returns an array of starter objects
+        return $query->execute();
+
+    }
+
     public function findByCity()
     {
         $entityManager = $this->getEntityManager();
