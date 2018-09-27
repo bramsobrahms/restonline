@@ -4,42 +4,43 @@
 
 {% block body %}
 
-<h2 class="titleCountry"><img class="flag" src="/pictures/belgium.gif"/>Belgian<img class="flag" src="/pictures/belgium.gif"/></h2>
+	<h2 class="titleCountry"><img class="flag" src="/pictures/belgium.gif"/>Belgian<img class="flag" src="/pictures/belgium.gif"/></h2>
 	
-{% for BelgianResto in allBelgianResto %}
-    <div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
-        <div class="card" >
-            
-            <img class="card-img-top" src="/pictures/{{BelgianResto.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+	<!-- This for show all Belgian resto -->
+	{% for BelgianResto in allBelgianResto %}
+		<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
+			<div class="card" >
+				
+				<img class="card-img-top" src="/pictures/{{BelgianResto.picture}}.jpg" alt="image du restaurant" id="imgResto" />
 
-            <div class="card-body">
-                <h5 class="card-title">{{BelgianResto.name}}</h5>
-                <p class="card-text">
-                    {{BelgianResto.street}} <br />{{BelgianResto.zip_code}} {{BelgianResto.city}}
-                    <hr />
-                    Lundi : 10:00 - 15:00  18:00 - 00:00<br />
-                    Mardi : 10:00 - 15:00  18:00 - 00:00<br />
-                    Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
-                    Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
-                    Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
-                    Samedi: 10:00 - 15:00  18:00 - 00:00<br />
-                    Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
-                    <hr />
-                    {{BelgianResto.phone}}
-                    <hr />
-                    <a href="{{ path('contact')}}" style="font-size: 15px; color: black;">{{BelgianResto.email}}</a><br />
-                    <a href="{{BelgianResto.website}}" target="_blank" id="linkSite"> Official website </a>
-                </p>
-            </div>
+				<div class="card-body">
+					<h5 class="card-title">{{BelgianResto.name}}</h5>
+					<p class="card-text">
+						{{BelgianResto.street}} <br />{{BelgianResto.zip_code}} {{BelgianResto.city}}
+						<hr />
+						Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+						Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+						Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+						Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+						Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+						Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+						<hr />
+						{{BelgianResto.phone}}
+						<hr />
+						<a href="{{ path('contact')}}" style="font-size: 15px; color: black;">{{BelgianResto.email}}</a><br />
+						<a href="{{BelgianResto.website}}" target="_blank" id="linkSite"> Official website </a>
+					</p>
+				</div>
+				<!-- This is the href to meal about this id -->
+				<div class="card-footer">
+					<small class="text-muted">
+						<a id="btnHref" href="{{ path('restaurant_id', {'id': BelgianResto.id}) }}">Menu</a>
+					</small>
+				</div> 
 
-            <div class="card-footer">
-                <small class="text-muted">
-                    <a id="btnHref" href="{{ path('restaurant_id', {'id': BelgianResto.id}) }}">Menu</a>
-                </small>
-            </div> 
-
-        </div>
-    </div>
-{% endfor %}
+			</div>
+		</div>
+	{% endfor %}
 
 {% endblock %}

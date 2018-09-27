@@ -4,10 +4,12 @@
 
 {% block body %}
 
+	<!-- The Carrousel is comming -->
 	<div id="slideresto">
 		<h1 id="slideResto"> Il y aura le slide pour trois restaurants </h1>
 	</div>
 
+	<!-- Show all restaurants -->
 	{% for restaurants in restaurants %}
    
 		<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
@@ -47,4 +49,3 @@
 	{% endfor %}   
 	
 {% endblock %}
-

@@ -19,9 +19,9 @@ class FavoriesRepository extends ServiceEntityRepository
         parent::__construct($registry, Favories::class);
     }
 
-//    /**
-//     * @return Favories[] Returns an array of Favories objects
-//     */
+    // /**
+    // * @return Favories[] Returns an array of Favories objects
+    // */
     /*
     public function findByExampleField($value)
     {

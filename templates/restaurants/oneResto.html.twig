@@ -4,140 +4,160 @@
 
 
 {% block body %}  
-	{% for resto in resto %}	
-		<img class="card-img-top" src="/pictures/{{resto.picture}}.jpg" alt="{{resto.picture}}" id="imgOneResto" />
-	
-	<div id="theOneResto">
-		<p id ="titleOneResto">
-				{{resto.name}}
-		</p>
-		<p>
-				{{resto.street}} <br />{{resto.zip_code}} {{resto.city}}
-		</p>
-		<p>
-				Tél: {{resto.phone}}<br />
-				Mail: {{resto.email}}
-		</p>
-	</div>
+
+	<!-- Show the Resto wich is select -->
+	{% for resto in resto %}
+
+		<img class="card-img-top" src="/pictures/{{resto.picture}}.jpg" alt="{{resto.picture}}" id="imgOneResto" />	
+		<div id="theOneResto">
+			<p id ="titleOneResto">
+					{{resto.name}}
+			</p>
+			<p>
+					{{resto.street}} <br />{{resto.zip_code}} {{resto.city}}
+			</p>
+			<p>
+					Tél: {{resto.phone}}<br />
+					Mail: {{resto.email}}
+			</p>
+		</div>
+
 	{% endfor %}
 
-	<div id="foods">
-			<form action = "{{ path('addBasket') }}" methode="get">
-		<nav>
-			<div class="nav nav-tabs" class="nav-tab" role="tablist">
-				<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#starter" role="tab" aria-controls="nav-home" aria-selected="true">starters</a>
-				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#dish" role="tab" aria-controls="nav-profile" aria-selected="false">dishs</a>
-				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#drink" role="tab" aria-controls="nav-profile" aria-selected="false">drinks</a>
-				<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#dessert" role="tab" aria-controls="nav-contact" aria-selected="false">desserts</a>
-			</div>
-		</nav>
-		<div class="tab-content" id="nav-tabContent">
+	<form action = "{{ path('addBasket') }}" methode="get">
+		<!-- This is a table wich select a different meal -->
+		<div id="foods">
 			
-			<div class="tab-pane fade show active" id="starter" role="tabpanel" aria-labelledby="nav-home-tab">
-				
-				{% for starter in starters %}
-				
-					<div id="divFood">
-						<div>
-							<img class="card-img-top" src="/pictures/{{starter.picture}}.jpg" alt="{{starter.picture}}" id="imgfood" />
-							<h6><b>{{starter.name}}</b></6>
-							<p>{{starter.ingredient}}</p>
-						</div>
-							
-						{{starter.price}} €<br />
-						<select name="qty" class="span1">
-							{% for i in 0..10 %}
-							<option value="{{i}}">{{i}}</option>
-							{% endfor %}
-						</select>
+			<!-- this is onglet for food -->
+			<nav>
+				<div class="nav nav-tabs" class="nav-tab" role="tablist">
+					<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#starter" role="tab" aria-controls="nav-home" aria-selected="true">starters</a>
+					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#dish" role="tab" aria-controls="nav-profile" aria-selected="false">dishs</a>
+					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#drink" role="tab" aria-controls="nav-profile" aria-selected="false">drinks</a>
+					<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#dessert" role="tab" aria-controls="nav-contact" aria-selected="false">desserts</a>
+				</div>
+			</nav>
 
-					</div>
+			<div class="tab-content" id="nav-tabContent">
 				
+				<!-- This a tab for starters -->
+				<div class="tab-pane fade show active" id="starter" role="tabpanel" aria-labelledby="nav-home-tab">					
+					{% for starter in starters %}					
+						<div id="divFood">
+							<div>
+								<img class="card-img-top" src="/pictures/{{starter.picture}}.jpg" alt="{{starter.picture}}" id="imgfood" />
+								<h6><b>{{starter.name}}</b></6>
+								<p>{{starter.ingredient}}</p>
+							</div>
+							{{starter.price}} €<br />
+							<select name="qty" class="span1">
+								{% for i in 0..10 %}
+									<option value="{{i}}">{{i}}</option>
+								{% endfor %}
+							</select>
+						</div>
+					{% endfor %}
+				</div>
 
-				{% endfor %}
+				<!-- This a tab for dishs -->
+				<div class="tab-pane fade" id="dish" role="tabpanel" aria-labelledby="nav-profile-tab">					
+					{% for dish in dishs %}
+						<div id="divFood">
+							<div>
+								<img class="card-img-top" src="/pictures/{{dish.picture}}.jpg" alt="{{dish.picture}}" id="imgfood" />
+								<h6><b>{{dish.name}}</b></6>
+								<p>{{dish.ingredient}}</p>
+							</div>
+							{{dish.price}} €<br />
+							<select name="qty" class="span1">
+								{% for i in 0..10 %}
+									<option value="{{i}}">{{i}}</option>
+								{% endfor %}
+							</select>
+						</div>
+						{% endfor %}
+				</div>
+				
+				<!-- This a tab for drinks -->
+				<div class="tab-pane fade" id="drink" role="tabpanel" aria-labelledby="nav-contact-tab">
+					{% for drink in drinks %}
+						<div id="divFood">
+							<div>
+								<img class="card-img-top" src="/pictures/{{drink.picture}}.jpg" alt="{{drink.picture}}" id="imgfood" />
+								<h6><b>{{drink.name}}</b></6>
+								<p>{{drink.ingredient}}</p>
+							</div>
+							{{drink.price}} €<br />
+							<select name="qty" class="span1">
+								{% for i in 0..10 %}
+									<option value="{{i}}">{{i}}</option>
+								{% endfor %}
+							</select>
+						</div>
+					{% endfor %}
+				</div>
 
-			</div>
-			<div class="tab-pane fade" id="dish" role="tabpanel" aria-labelledby="nav-profile-tab">
-				
-				{% for dish in dishs %}
-				<div id="divFood">
-						<div>
-							<img class="card-img-top" src="/pictures/{{dish.picture}}.jpg" alt="{{dish.picture}}" id="imgfood" />
-							<h6><b>{{dish.name}}</b></6>
-							<p>{{dish.ingredient}}</p>
+				<!-- This a tab for desserts -->
+				<div class="tab-pane fade" id="dessert" role="tabpanel" aria-labelledby="nav-contact-tab">
+					{% for dessert in desserts %}
+						<div id="divFood">
+							<div>
+								<img class="card-img-top" src="/pictures/{{dessert.picture}}.jpg" alt="{{dessert.picture}}" id="imgfood" />
+								<h6><b>{{dessert.name}}</b></6>
+								<p>{{dessert.ingredient}}</p>
+							</div>
+							{{dessert.price}} €<br />
+							<select name="qty" class="span1">
+								{% for i in 0..10 %}
+									<option value="{{i}}">{{i}}</option>
+								{% endfor %}
+							</select>
 						</div>
-						
-						{{dish.price}} €<br />
-						</div>
-				{% endfor %}
-	
-			</div>
-			<div class="tab-pane fade" id="drink" role="tabpanel" aria-labelledby="nav-contact-tab">
-				
-				{% for drink in drinks %}
-				<div id="divFood">
-						<div>
-							<img class="card-img-top" src="/pictures/{{drink.picture}}.jpg" alt="{{drink.picture}}" id="imgfood" />
-							<h6><b>{{drink.name}}</b></6>
-							<p>{{drink.ingredient}}</p>
-						</div>
-						
-						{{drink.price}} €<br />
-						
-					</div>
-				{% endfor %}
+					{% endfor %}		
+				</div>
+			</div>		
+		</div>
 
-			</div>
-			<div class="tab-pane fade" id="dessert" role="tabpanel" aria-labelledby="nav-contact-tab">
+		<!-- This is a table with different deliveries -->
+		<div id="orders">
+			<nav>
+				<div class="nav nav-tabs" class="nav-tab" role="tablist">
+					<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#star" role="tab" aria-controls="nav-home" aria-selected="true">Sur place</a>
+					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#di" role="tab" aria-controls="nav-profile" aria-selected="false">Reserver</a>
+					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#dr" role="tab" aria-controls="nav-profile" aria-selected="false">Livrer</a>
+					<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#de" role="tab" aria-controls="nav-contact" aria-selected="false">Emporter</a>
+				</div>
+			</nav>
+
+			<div class="tab-content" id="nav-tabContent">
+				<!-- To eat in  -->
+				<div class="tab-pane fade show active" id="star" role="tabpanel" aria-labelledby="nav-home-tab">
+					<p>Manger sur place</p>
+				</div>
 				
-				{% for dessert in desserts %}
-				<div id="divFood">
-						<div>
-							<img class="card-img-top" src="/pictures/{{dessert.picture}}.jpg" alt="{{dessert.picture}}" id="imgfood" />
-							<h6><b>{{dessert.name}}</b></6>
-							<p>{{dessert.ingredient}}</p>
-						</div>
-						
-						{{dessert.price}} €<br />
-						</div>
-				{% endfor %}
-		
+				<!-- To book a table only  -->
+				<div class="tab-pane fade" id="di" role="tabpanel" aria-labelledby="nav-profile-tab">
+					<p>Reserver une table uniquement</p>
+				</div>
+				
+				<!-- To delivery meal  -->
+				<div class="tab-pane fade" id="dr" role="tabpanel" aria-labelledby="nav-contact-tab">
+					<p>Se faire livrer</p>
+				</div>
+
+				<!-- to take aways  -->
+				<div class="tab-pane fade" id="de" role="tabpanel" aria-labelledby="nav-contact-tab">
+					<p>Emporter</p>			
+				</div>
+				
 			</div>
 		</div>
-	
-	</div>
 
-	<div id="orders">
-		<nav>
-			<div class="nav nav-tabs" class="nav-tab" role="tablist">
-				<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#star" role="tab" aria-controls="nav-home" aria-selected="true">Sur place</a>
-				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#di" role="tab" aria-controls="nav-profile" aria-selected="false">Reserver</a>
-				<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#dr" role="tab" aria-controls="nav-profile" aria-selected="false">Livrer</a>
-				<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#de" role="tab" aria-controls="nav-contact" aria-selected="false">Emporter</a>
-			</div>
-		</nav>
-		<div class="tab-content" id="nav-tabContent">
-			
-			<div class="tab-pane fade show active" id="star" role="tabpanel" aria-labelledby="nav-home-tab">
-				<p>Manger sur place</p>
-			</div>
-	
-			<div class="tab-pane fade" id="di" role="tabpanel" aria-labelledby="nav-profile-tab">
-				<p>Reserver une table uniquement</p>
-			</div>
-			
-			<div class="tab-pane fade" id="dr" role="tabpanel" aria-labelledby="nav-contact-tab">
-				<p>Se faire livrer</p>
-			</div>
-			<div class="tab-pane fade" id="de" role="tabpanel" aria-labelledby="nav-contact-tab">
-				<p>Emporter</p>			
-			</div>
-			</div>
-		</div>
-	</div>
-
-	<button id="btnOrder" class="btn btn-outline-success">Order</button>	
+		<!-- button goes to basket -->
+		<button id="btnOrder" class="btn btn-outline-success">Order</button>	
 	</form>
+
+	<!-- button goes to reviews -->
 	<button id="btnReviews" type="button" class="btn btn-outline-warning">Reviews</button>
 	
 {% endblock %}

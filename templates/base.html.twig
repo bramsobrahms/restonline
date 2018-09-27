@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-	<head>
 
+	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 
@@ -11,12 +11,14 @@
 			<link rel="stylesheet" href="{{ ('/dist/css/styles.css') }}" /> 
 			<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">        
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-			{% endblock %}
-			<script src='https://www.google.com/recaptcha/api.js'></script>
+		{% endblock %}
+		<!-- I must to put here the link for te captcha-->
+		<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 	
 	<body>
 		<a href="{{ path('restaurants')}}"><img id="logo" src="/pictures/logo.gif" alt="logo du site"/></a>
+
 		<div id="homeNav">
 			<ul class="nav nav-pills nav-fill">
 				<li id="li1" class="nav-item">
@@ -36,12 +38,14 @@
 				</li>
 			</ul>
 		</div>
+
 		<div class="container" id="search">
 			{{ render(controller(
 				'App\\Controller\\SearchController::searchBar'
 
 			)) }}
 		</div>
+
 		{% block body %} {% endblock %}
 		
 		{% block javascripts %}
@@ -57,7 +61,6 @@
 				Brahim KHADRI<br /> -- TFE -- <br />2018
 			{% endblock %}
 		</div>
-
 	</body>
 
 </html>

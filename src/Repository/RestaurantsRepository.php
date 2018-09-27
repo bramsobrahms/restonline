@@ -46,4 +46,17 @@ class RestaurantsRepository extends ServiceEntityRepository
         // returns an array of starter objects
         return $query->execute();
     }
+
+    public function findByOneCity()
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery("
+            SELECT DISTINCT r.city
+            FROM App\Entity\Restaurants r          
+        ");
+
+        // returns an array of starter objects
+        return $query->execute();
+    }
 }

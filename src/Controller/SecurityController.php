@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Entity\users;
@@ -13,39 +12,38 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-
 class SecurityController extends AbstractController
 {
-    /**
-     * @Route("/register", name="register")
-     */
-    public function register(UserHandler $formHandler, Request $request, UserPasswordEncoderInterface $encoder): Response
-    {
-    	$form = $this->createForm(RegisterType::class);
+	/**
+	 * @Route("/register", name="register")
+	 */
+	public function register(UserHandler $formHandler, Request $request, UserPasswordEncoderInterface $encoder): Response
+	{
+		$form = $this->createForm(RegisterType::class);
 
-        if($formHandler->handle($form, $request, $encoder)){
-            return $this->redirectToRoute('restaurants');
-        }
+		if($formHandler->handle($form, $request, $encoder)){
+			return $this->redirectToRoute('restaurants');
+		}
 
-        return $this->render('security/register.html.twig', [ 'form' => $form->createView()]);
-    }
+		return $this->render('security/register.html.twig', [ 'form' => $form->createView()]);
+	}
 
-    /**
-     * @Route("/login", name="login")
-     */
-    public function login(AuthenticationUtils $authenticationsUtils): Response
-    {
-        return $this->render('security/login.html.twhig',[
-            'error' => $authenticationsUtils->getLastAuthenticationError(),
-            'last_email' => $authenticationsUtils->getLastEmail()
-        ]);
-    }
+	/**
+	 * @Route("/login", name="login")
+	 */
+	public function login(AuthenticationUtils $authenticationsUtils): Response
+	{
+		return $this->render('security/login.html.twhig',[
+			'error' => $authenticationsUtils->getLastAuthenticationError(),
+			'email' => $authenticationsUtils->getEmail()
+		]);
+	}
 
-    /**
-     * @Route("/logout", name="logout")
-     */
-    public function logout(): void
-    {
+	/**
+	 * @Route("/logout", name="logout")
+	 */
+	public function logout(): void
+	{
 
-    }
+	}
 }

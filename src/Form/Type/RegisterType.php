@@ -5,9 +5,11 @@ namespace App\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,7 +22,7 @@ class RegisterType extends AbstractType
 			->add('name', TextType::class, ['attr' => ['placeholder' => 'Name']])
 			->add('first_name', TextType::class, ['attr' => ['placeholder' => 'First name']])
 			->add('email', EmailType::class, ['attr' => ['placeholder' => 'Email']])
-			->add('birthday',DateType::class, ['attr' =>['placeholder' => 'Birthday']])
+			->add('birthday',BirthdayType::class, ['attr' =>['placeholder' => 'Birthday']])
 			->add('sexe', TextType::class, ['attr' => ['placeholder' => 'sexe']])
 			->add('street', TextType::class, ['attr' => ['placeholder' => 'street']])
 			->add('zip_code', TextType::class, ['attr' => ['placeholder' => 'zip code']])
@@ -35,8 +37,12 @@ class RegisterType extends AbstractType
 			))
 			->add('submit', SubmitType::class,[
 				'label' => 'Register',
-				'attr' => ['class' => 'btn btn-primary btn-lg']]
-			);
+				'attr' => ['class' => 'btn btn-success btn-lg']]
+			)
+			->add('reset', ResetType::class,[
+				'label' => 'Reset',
+				'attr' => ['class' => 'btn btn-danger btn-lg']]
+			);;
 	}
 
 	public function configureOptions(OptionsResolver $resolver)

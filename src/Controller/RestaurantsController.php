@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controller;
 
 use App\Entity\Restaurants;
@@ -21,7 +20,9 @@ class RestaurantsController extends AbstractController
 		(Restaurants::class)->findAll();
 
 		//return new Response('Restaurant: '.$restaurant->getName());
-		return $this->render('restaurants/index.html.twig', array('restaurants' => $restaurants));
+		return $this->render('restaurants/index.html.twig',
+			array('restaurants' => $restaurants)
+		);
 	}
 
 	/**
@@ -29,32 +30,32 @@ class RestaurantsController extends AbstractController
 	 */
 	public function showRestaurant($id)
 	{
+		//Take data from repository and save datas for all Restos
 		$resto = $this->getDoctrine()
 			->getRepository(Restaurants::class)
 			->findByresto($id);
 
-		   // $id = $restaurant->getId();
-
+		//Take data from repository and save datas for starters
 		$starters = $this->getDoctrine()
 			->getRepository(Foods::class)
 			->findStarter($id);
 
+		//Take data from repository and save datas for dishs
 		$dishs = $this->getDoctrine()
 			->getRepository(Foods::class)
 			->findDish($id);
 
+		//Take data from repository and save datas for drinks
 		$drinks = $this->getDoctrine()
 			->getRepository(Foods::class)
 			->findDrink($id);
-		
+
+		//Take data from repository and save datas for
 		$desserts = $this->getDoctrine()
 			->getRepository(Foods::class)
-			->findDessert($id);
-				
-		  
+			->findDessert($id);	
 
-	
-
+		//Rendering to template
 		return $this->render('restaurants/oneResto.html.twig', [
 			'controller_oneResto' => 'oneResto',
 			
@@ -63,9 +64,7 @@ class RestaurantsController extends AbstractController
 			'dishs'=> $dishs,
 			'drinks'=>$drinks,
 			'desserts'=>$desserts,
-
-		]);
-		
+		]);		
 	}
 
 }

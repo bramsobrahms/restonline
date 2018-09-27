@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Form\Handler;
-
 use App\Entity\Users;
 use App\Model\User as UserModel;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -44,6 +42,8 @@ class UserHandler
 			/**
 			 * @var Users $user
 			 */
+			
+			// Save all data from Enity Users inside $user
 			$user = new Users();
 			$user->setName($userModel -> name);
 			$user->setFirstName($userModel -> first_name);

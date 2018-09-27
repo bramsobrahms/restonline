@@ -11,130 +11,136 @@
 
 	<div id="vege">
 		<h1 id="titleVeg">Vegetarian</h1>
+		
 		<div id="backVeg">
-		{% for typeVeg in typeVeg %}
-			<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
-				<div class="card" >
+			{% for typeVeg in typeVeg %}
+				<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
+					<div class="card" >
 
-					<img class="card-img-top" src="pictures/{{typeVeg.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+						<img class="card-img-top" src="pictures/{{typeVeg.picture}}.jpg" alt="image du restaurant" id="imgResto" />
 
-					<div class="card-body">
-						<h5 id="dietVeg" class="card-title">{{typeVeg.name}}</h5>
-						<p class="card-text">
-							{{typeVeg.street}} <br />{{typeVeg.zip_code}} {{typeVeg.city}}
-							<hr />
-							Lundi : 10:00 - 15:00  18:00 - 00:00<br />
-							Mardi : 10:00 - 15:00  18:00 - 00:00<br />
-							Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
-							Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
-							Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
-							Samedi: 10:00 - 15:00  18:00 - 00:00<br />
-							Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
-							<hr />
-							{{typeVeg.phone}}
-							<hr />
-							<a href="{{ path('contact')}}" style="font-size: 15px; color: green;">{{typeVeg.email}}</a><br />
-							<a href="{{typeVeg.website}}" target="_blank" id="dietVeg"> Official website </a>
-						</p>
+						<div class="card-body">
+							<h5 id="dietVeg" class="card-title">{{typeVeg.name}}</h5>
+							<p class="card-text">
+								{{typeVeg.street}} <br />{{typeVeg.zip_code}} {{typeVeg.city}}
+								<hr />
+								Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+								Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+								Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+								Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+								Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+								Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+								Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+								<hr />
+								{{typeVeg.phone}}
+								<hr />
+								<a href="{{ path('contact')}}" style="font-size: 15px; color: green;">{{typeVeg.email}}</a><br />
+								<a href="{{typeVeg.website}}" target="_blank" id="dietVeg"> Official website </a>
+							</p>
+						</div>
+
+						<div class="card-footer">
+							<small class="text-muted">
+								<a id="dietVeg" href="{{ path('restaurant_id', {'id': typeVeg.id}) }}">Menu</a>
+							</small>
+						</div> 
+
 					</div>
-
-					<div class="card-footer">
-						<small class="text-muted">
-							<a id="dietVeg" href="{{ path('restaurant_id', {'id': typeVeg.id}) }}">Menu</a>
-						</small>
-					</div> 
-
 				</div>
-			</div>
-		{% endfor %}
+			{% endfor %}
 		</div>
+
 	</div>
 
 	<div id="meat">
 		<h1 id="titleMeat">Meat</h1>
+		
 		<div id="backMeat">
-		{% for typeMeat in typeMeat %}
-			<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
-				<div class="card" >
-	
-					<img class="card-img-top" src="pictures/{{typeMeat.picture}}.jpg" alt="image du restaurant" id="imgResto" />
-	
-					<div class="card-body">
-						<h5 id="dietMeat" class="card-title">{{typeMeat.name}}</h5>
-						<p class="card-text">
-							{{typeMeat.street}} <br />{{typeMeat.zip_code}} {{typeMeat.city}}
-							<hr />
-							Lundi : 10:00 - 15:00  18:00 - 00:00<br />
-							Mardi : 10:00 - 15:00  18:00 - 00:00<br />
-							Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
-							Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
-							Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
-							Samedi: 10:00 - 15:00  18:00 - 00:00<br />
-							Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
-							<hr />
-							{{typeMeat.phone}}
-							<hr />
-							<a href="{{ path('contact')}}" style="font-size: 15px; color:#620806;">{{typeMeat.email}}</a><br />
-							<a href="{{typeMeat.website}}" target="_blank" id="dietMeat"> Official website </a>
-						</p>
+			{% for typeMeat in typeMeat %}
+				<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
+					<div class="card" >
+		
+						<img class="card-img-top" src="pictures/{{typeMeat.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+		
+						<div class="card-body">
+							<h5 id="dietMeat" class="card-title">{{typeMeat.name}}</h5>
+							<p class="card-text">
+								{{typeMeat.street}} <br />{{typeMeat.zip_code}} {{typeMeat.city}}
+								<hr />
+								Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+								Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+								Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+								Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+								Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+								Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+								Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+								<hr />
+								{{typeMeat.phone}}
+								<hr />
+								<a href="{{ path('contact')}}" style="font-size: 15px; color:#620806;">{{typeMeat.email}}</a><br />
+								<a href="{{typeMeat.website}}" target="_blank" id="dietMeat"> Official website </a>
+							</p>
+						</div>
+		
+						<div class="card-footer">
+							<small class="text-muted">
+								<a id="dietMeat" href="{{ path('restaurant_id', {'id': typeMeat.id}) }}">Menu</a>
+							</small>
+						</div> 
+		
 					</div>
-	
-					<div class="card-footer">
-						<small class="text-muted">
-							<a id="dietMeat" href="{{ path('restaurant_id', {'id': typeMeat.id}) }}">Menu</a>
-						</small>
-					</div> 
-	
 				</div>
-			</div>
-		{% endfor %}
+			{% endfor %}
 		</div>
+
 	</div>
 
 	<div id="fish">
 		<h1 id="titleFish">Fish</h1>
-		<div id="backFish">
-		{% for typeFish in typeFish %}
-			<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
-				<div class="card" >
-		
-					<img class="card-img-top" src="pictures/{{typeFish.picture}}.jpg" alt="image du restaurant" id="imgResto" />
-		
-					<div class="card-body">
-						<h5 id="dietFish" class="card-title">{{typeFish.name}}</h5>
-						<p class="card-text">
-							{{typeFish.street}} <br />{{typeFish.zip_code}} {{typeFish.city}}
-							<hr />
-							Lundi : 10:00 - 15:00  18:00 - 00:00<br />
-							Mardi : 10:00 - 15:00  18:00 - 00:00<br />
-							Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
-							Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
-							Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
-							Samedi: 10:00 - 15:00  18:00 - 00:00<br />
-							Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
-						<hr />
-							{{typeFish.phone}}
-							<hr />
-							<a href="{{ path('contact')}}" style="font-size: 15px; color: blue;">{{typeFish.email}}</a><br />
-							<a href="{{typeFish.website}}" target="_blank" id="dietFish"> Official website </a>
-						</p>
-					</div>
 	
-					<div class="card-footer">
-						<small class="text-muted">
-							<a id="dietFish" href="{{ path('restaurant_id', {'id': typeFish.id}) }}">Menu</a>
-						</small>
-					</div> 
+		<div id="backFish">
+			{% for typeFish in typeFish %}
+				<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
+					<div class="card" >
+			
+						<img class="card-img-top" src="pictures/{{typeFish.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+			
+						<div class="card-body">
+							<h5 id="dietFish" class="card-title">{{typeFish.name}}</h5>
+							<p class="card-text">
+								{{typeFish.street}} <br />{{typeFish.zip_code}} {{typeFish.city}}
+								<hr />
+								Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+								Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+								Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+								Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+								Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+								Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+								Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+							<hr />
+								{{typeFish.phone}}
+								<hr />
+								<a href="{{ path('contact')}}" style="font-size: 15px; color: blue;">{{typeFish.email}}</a><br />
+								<a href="{{typeFish.website}}" target="_blank" id="dietFish"> Official website </a>
+							</p>
+						</div>
 		
+						<div class="card-footer">
+							<small class="text-muted">
+								<a id="dietFish" href="{{ path('restaurant_id', {'id': typeFish.id}) }}">Menu</a>
+							</small>
+						</div> 
+			
+					</div>
 				</div>
-			</div>
-		{% endfor %}
+			{% endfor %}
 		</div>
 	</div>
 
-	<!--On inclut la librairie jQuery-->
+	<!-- We join the library jQuery -->
 	<script src='https://code.jquery.com/jquery-3.1.0.js'></script>
 	
+	<!-- The script  -->
 	<script>
 		$(document).ready(function(){
 			$('#btnVege').click(function(){

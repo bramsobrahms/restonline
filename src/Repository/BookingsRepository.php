@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Repository;
 
 use App\Entity\Bookings;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+
 
 /**
  * @method Bookings|null find($id, $lockMode = null, $lockVersion = null)
@@ -12,6 +12,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  * @method Bookings[]    findAll()
  * @method Bookings[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
+
 class BookingsRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
@@ -19,9 +20,9 @@ class BookingsRepository extends ServiceEntityRepository
         parent::__construct($registry, Bookings::class);
     }
 
-//    /**
-//     * @return Bookings[] Returns an array of Bookings objects
-//     */
+	///**
+	//* @return Bookings[] Returns an array of Bookings objects
+	//*/
     /*
     public function findByExampleField($value)
     {
