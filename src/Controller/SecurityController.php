@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Entity\users;
+use App\Entity\Users;
 use App\Form\Handler\UserHandler;
 use App\Form\Type\RegisterType;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,12 +31,18 @@ class SecurityController extends AbstractController
 	/**
 	 * @Route("/login", name="login")
 	 */
-	public function login(AuthenticationUtils $authenticationsUtils): Response
+	public function login(AuthenticationUtils $authenticationUtils)
 	{
-		return $this->render('security/login.html.twhig',[
-			'error' => $authenticationsUtils->getLastAuthenticationError(),
-			'email' => $authenticationsUtils->getEmail()
-		]);
+		// get the login error if there is one
+		$error = $authenticationUtils->getLastAuthenticationError();
+	
+		// last username entered by the user
+		$lastUsername = $authenticationUtils->getLastUsername();
+	
+		return $this->render('security/login.html.twig', array(
+			'last_username' => $lastUsername,
+			'error'         => $error,
+		));
 	}
 
 	/**

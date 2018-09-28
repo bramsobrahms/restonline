@@ -14,24 +14,22 @@ class BasketController extends AbstractController
 	 */
 	public function basket()
 	{
-		$request = $this->container->get('request_stack')->getCurrentRequest();
+		$request = $this->get('request_stack')->getCurrentRequest();
 		$session = $request->getSession();
-		$basket = $session->get('basket');
-
+		
 		if(!$session->has('basket')) $session->set('basket', array());
 
 		/*var_dump($session->has('basket'));
 		die();*/
 
 		$em = $this->getDoctrine()->getManager();
-		$foods = $em->getRepository(Foods::class)->findArray(array_keys($basket));
+		$foods = $em->getRepository(Foods::class)->findArray(array_keys($session->get('basket')));
 
 
 		return $this->render('/basket/index.html.twig', [
 			'controller_name' => 'basket',
 
 			'foods'=>$foods,
-			'basket'=>$basket,
 		]);
  
 	}
@@ -49,17 +47,22 @@ class BasketController extends AbstractController
 		$basket = $session->get('basket');
 
 		
-		if(array_key_exists($id,$basket)){
-			if($this->get('request_stack')->query->getCurrentRequest('qty') !=null) $basket[$id] = $this->getRequest()->query->get('qty');
+		if(array_key_exists($id, $basket)){
+			
+			if($request->quer->get('qty') !=null) $basket[$id] = $request->query->get('qty');
+			$this->get('session')->getFlashBag()->add('success','you change! ');
+			
 		}else{
-			if($this->get('request_stack')->query->getCurrentRequest('qty') != null)
+
+			if($request->query('qty') != null)
 				$basket[$id] = $this->get('request_stack')->getCurrentRequest('qty');
 			else
-				$basket[$id] = 0;
+				$basket[$id] = 1;
+			$this->get('session')->getFlashBag()->add('success','you add this meal');
 		}
 
 		$session->set('basket', $basket);
-		$basket = $session->get('basket');
+		
 	
 		return $this->render('/basket/index.html.twig', [
 			'controller_name' => 'basket',

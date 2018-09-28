@@ -64,6 +64,24 @@ a:link, a:visited{
 
 /*
  This is for the folder template
+ security/login.html.twig
+*/
+#login{
+	margin-top: 5%;
+	text-align: center;
+}
+
+/*
+ This is for the folder template
+ security/register.html.twig
+*/
+#register{
+	color:gray;
+	font-size: 12px;
+}
+
+/*
+ This is for the folder template
  restaurants/index.html.twig
 */
 
@@ -287,7 +305,7 @@ td{
 
 /*
  This is for the folder template
- type/index.html.twig
+ Contact/index.html.twig
 */
 #Formcontact{
 	text-align: center;
@@ -305,4 +323,13 @@ td{
 	margin-top:1.5%;
 	margin-bottom:1.5%;
 	margin-left: 40%;
+}
+
+/*
+ This is for the folder template
+ Basket/index.html.twig
+*/
+#payment{
+	margin-top: 2%;
+	margin-left: 40%
 }

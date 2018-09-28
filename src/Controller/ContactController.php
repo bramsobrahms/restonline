@@ -1,9 +1,11 @@
 <?php
 namespace App\Controller;
 
+use App\Form\Contact\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use \Swift_SmtpTransport,\Swift_Mailer,\Swift_Message,\newInstance;
 
 class ContactController extends AbstractController
 {
@@ -46,25 +48,26 @@ class ContactController extends AbstractController
 		]);
 	}
 
-	private function sendEmail($data){
+	
+	private function sendEmail(){
 		$myappContactMail = 'bramsobrahm@gmail.com';
-		$myappContactPassword = 'yourmailpassword';
+		$myappContactPassword = '123';
 		
 		// In this case we'll use the ZOHO mail services.
 		// If your service is another, then read the following article to know which smpt code to use and which port
 		// http://ourcodeworld.com/articles/read/14/swiftmailer-send-mails-from-php-easily-and-effortlessly
-		$transport = \Swift_SmtpTransport::newInstance()
+		$transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
 			->setUsername($myappContactMail)
 			->setPassword($myappContactPassword); 
 
-		$mailer = \Swift_Mailer::newInstance($transport);
-		
-		$message = \Swift_Message::newInstance("Our Code World Contact Form ". $data["subject"])
-		->setFrom(array($myappContactMail => "Message by ".$data["name"]))
+		$mailer = new Swift_Mailer($transport);
+				
+		$message = (new Swift_Message("Our Code World Contact Form ". $data["subject"]))
+		->setFrom(array($myappContactMail => "Message by " .$data["name"]))
 		->setTo(array(
 			$myappContactMail => $myappContactMail
 		))
-		->setBody($data["message"]."<br>ContactMail :".$data["email"]);
+		->setBody($data["message"]."<br>ContactMail : ".$data["email"]);
 		
 		return $mailer->send($message);
 	}

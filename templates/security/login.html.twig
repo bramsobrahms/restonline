@@ -1,31 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	{% if %}
-		<div class="alert alert-danger">
-			{{ error.messageKey }}
-		</div>
-	{% endif %}
-	<div class="container">
-		<div class="row">
-			<div class="col text-center">
-				<div class="col-xs-12">
-					<h1>Espace de connexion</h1>
-				</div>
-		
-				<form>
-					<div class="form-group">
-						<label for="email">Email</label>
-						<input type="text" name="email" value="{{ email}}}" placeholder="email">
-					</div>
-					<div class="form-group">
-						<label for="email">Password</label>
-						<input type="password" name="_password" placeholder="Password">
-					</div>
-					<input type="hidden" name="_csrf_token" value="{{ csrf_token('autenticate') }}"/>
-					<button role="button" type="submit" class="'btn btn-primary-lg'"><i class="fa fa-sign-in" aria-hidden="true">Connextion</i></button>
-				</form>
-			</div>
-		</div>
-	</div>
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <div>
+        <form action="{{ path('login') }}" method="post" id="login">
+            <!-- This is the form -->
+            <h2>Connect</h2>
+            <br />
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" /><br />
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="_password" />
+
+            {#
+                If you want to control the URL the user
+                is redirected to on success (more details below)
+                <input type="hidden" name="_target_path" value="/account" />
+            #}
+            <br />
+            <button class="btn btn-success" type="submit">login</button>
+            <br />
+
+            <!-- This is the link to register -->
+            <a id="register" href="{{path('register')}}">s'inscrire</a>
+        </form>
+    </div>
 {% endblock %}
