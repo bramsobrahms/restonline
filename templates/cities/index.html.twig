@@ -4,11 +4,56 @@
 
 {% block body %}
 
-	<h2 id='cityTitle'>{{nameCity}}</h2>
+	<h2 id='cityTitle'>Brussels</h2>
 
 	{% for city in city %}
-		<!-- After the loop city, we look all restaurant about the same city  -->
-		{% if city.city == nameCity  %}
+		<!-- After the loop city, we look all restaurant about the same city  -->		
+		{% if (city.zip_code >= 1 and city.zip_code < 1999 )  %}		
+
+			<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
+				<div class="card" >
+
+					<img class="card-img-top" src="pictures/{{city.picture}}.jpg" alt="image du restaurant" id="imgResto" />
+
+					<div class="card-body">
+						<h5 class="card-title">{{city.name}}</h5>
+						<p class="card-text">
+							{{city.street}} <br />{{city.zip_code}} {{city.city}}
+							<hr />
+							Lundi : 10:00 - 15:00  18:00 - 00:00<br />
+							Mardi : 10:00 - 15:00  18:00 - 00:00<br />
+							Mercredi : 10:00 - 15:00  18:00 - 00:00<br />
+							Jeudi: 10:00 - 15:00  18:00 - 00:00<br />
+							Vendredi: 10:00 - 15:00  18:00 - 00:00<br />
+							Samedi: 10:00 - 15:00  18:00 - 00:00<br />
+							Dimanche: 10:00 - 15:00  18:00 - 00:00<br />
+							<hr />
+							{{city.phone}}
+							<hr />
+							<a href="{{ path('contact')}}" style="font-size: 15px; color: black;">{{city.email}}</a><br />
+							<a href="{{city.website}}" target="_blank" id="linkSite"> Official website </a>
+						</p>
+					</div>
+
+					<!-- this link rend to RestaurantsController and show all meals about this -->
+					<div class="card-footer">
+						<small class="text-muted">
+							<a id="btnHref" href="{{ path('restaurant_id', {'id': city.id}) }}">Menu</a>
+						</small>
+					</div> 
+
+				</div>
+			</div>
+
+		{% endif %}
+
+	{% endfor %}
+
+	<h2 id='cityTitle'>Namur</h2>
+
+	{% for city in city %}
+		<!-- After the loop city, we look all restaurant about the same city  -->		
+		{% if (city.zip_code >= 5000 and city.zip_code < 5999 )  %}		
 
 			<div class="card-deck" id="cardResto" style="display:inline-block; width:350px;">      
 				<div class="card" >
