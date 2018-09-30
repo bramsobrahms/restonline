@@ -60,7 +60,20 @@
 
 		<div id="footer">
 			{% block footer %} 
-				Brahim KHADRI<br /> -- TFE -- <br />2018
+				<br />
+				<!-- send email to admin website -->
+				<a href="mailto:Restonline@gmail.com" style="color:#931969; font-family: 'DIN Alternate';">
+					<p class="footerCss">Contact us</p>
+				</a>
+				<a href="{{path('faq')}}"><p class="footerCss">F.A.Q</p></a>
+				<a href="{{path('termsAndConditions')}}"><p class="footerCss">Terms and conditions</p></a>
+
+				<!-- Property the website -->
+				<div id="proprietary">
+					Brahim KHADRI<br />
+					-- TFE -- 2018 --<br />
+					© restonline
+				</div>
 			{% endblock %}
 		</div>
 	</body>

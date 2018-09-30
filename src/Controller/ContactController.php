@@ -48,7 +48,7 @@ class ContactController extends AbstractController
 		]);
 	}
 
-	
+	// send a mail for each restaurant personal 	
 	private function sendEmail(){
 		$myappContactMail = 'bramsobrahm@gmail.com';
 		$myappContactPassword = '123';

@@ -25,7 +25,7 @@
         "symfony/routing": "*",
         "symfony/security-bundle": "*",
         "symfony/serializer-pack": "*",
-        "symfony/swiftmailer-bundle": "^3.1",
+        "symfony/swiftmailer-bundle": "^3.2",
         "symfony/twig-bundle": "*",
         "symfony/validator": "*",
         "symfony/var-dumper": "*",
@@ -34,7 +34,6 @@
         "symfony/web-server-bundle": "*",
         "symfony/webpack-encore-pack": "^1.0",
         "symfony/yaml": "*"
-
     },
     "require-dev": {
         "sensiolabs/security-checker": "^4.1",

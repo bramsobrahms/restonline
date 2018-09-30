@@ -24,7 +24,8 @@
 
 	{% endfor %}
 
-	<form action = "{{ path('addBasket') }}" methode="get">
+
+	<form action="{{ path('addBasket') }}" methode="get">
 		<!-- This is a table wich select a different meal -->
 		<div id="foods">
 			
@@ -122,32 +123,89 @@
 		<div id="orders">
 			<nav>
 				<div class="nav nav-tabs" class="nav-tab" role="tablist">
-					<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#star" role="tab" aria-controls="nav-home" aria-selected="true">Sur place</a>
-					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#di" role="tab" aria-controls="nav-profile" aria-selected="false">Reserver</a>
-					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#dr" role="tab" aria-controls="nav-profile" aria-selected="false">Livrer</a>
-					<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#de" role="tab" aria-controls="nav-contact" aria-selected="false">Emporter</a>
+					<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#star" role="tab" aria-controls="nav-home" aria-selected="true">Eat in</a>
+					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#di" role="tab" aria-controls="nav-profile" aria-selected="false">Book</a>
+					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#dr" role="tab" aria-controls="nav-profile" aria-selected="false">Delivery</a>
+					<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#de" role="tab" aria-controls="nav-contact" aria-selected="false">Take aways</a>
 				</div>
 			</nav>
 
 			<div class="tab-content" id="nav-tabContent">
 				<!-- To eat in  -->
 				<div class="tab-pane fade show active" id="star" role="tabpanel" aria-labelledby="nav-home-tab">
-					<p>Manger sur place</p>
+					<div class="bookToEat">
+						<label>Email: </label>
+						<input type="email" name="email" placeholder="Resto@gmail.com" value=" "/>
+
+						<label>Date: </label>
+						<input type="date" name="dateEat" value=" "></input><br />
+
+						<label>Hours: </label>
+						<input type="time" name="timeEat" value=" "></input>
+
+						<label>Number of people: </label>
+						<input type="number" name="NofPEat" min="1" max="15"></input>
+					</div>
 				</div>
 				
 				<!-- To book a table only  -->
 				<div class="tab-pane fade" id="di" role="tabpanel" aria-labelledby="nav-profile-tab">
-					<p>Reserver une table uniquement</p>
+					<div class="bookToEat">
+						<label>Name :</label>
+						<input type="text" name="name" placeholder="Resto@gmail.com" value=" "/>
+
+						<label>Email: </label>
+						<input type="email" name="email" placeholder="Resto@gmail.com" value=" "/><br />
+		
+						<label>Date: </label>
+						<input type="date" name="dateEat" value=" "></input><br />
+		
+						<label>Hours: </label>
+						<input type="time" name="timeEat" value=" "></input>
+		
+						<label>Number of people: </label>
+						<input type="number" name="NofPEat" min="1" max="15"></input>
+					</div>
 				</div>
 				
 				<!-- To delivery meal  -->
 				<div class="tab-pane fade" id="dr" role="tabpanel" aria-labelledby="nav-contact-tab">
-					<p>Se faire livrer</p>
+					<div class="bookToEat">
+						<label>Name :</label>
+						<input type="text" name="name" placeholder="Durant" value=" "/>
+
+						<label>First name :</label>
+						<input type="text" name="first_name" placeholder="Jean" value=" "/><br />
+
+						<label>Email: </label>
+						<input type="email" name="email" placeholder="Resto@gmail.com" value=" "/><br />
+				
+						<label>Date: </label>
+						<input type="date" name="dateEat" value=" "></input>
+				
+						<label>Hours: </label>
+						<input type="time" name="timeEat" value=" "></input>
+					</div>
 				</div>
 
 				<!-- to take aways  -->
 				<div class="tab-pane fade" id="de" role="tabpanel" aria-labelledby="nav-contact-tab">
-					<p>Emporter</p>			
+					<div class="bookToEat">
+							<label>Name :</label>
+							<input type="text" name="name" placeholder="Durant" value=" "/>
+		
+							<label>First name :</label>
+							<input type="text" name="first_name" placeholder="Jean" value=" "/><br />
+		
+							<label>Email: </label>
+							<input type="email" name="email" placeholder="Resto@gmail.com" value=" "/><br />
+						
+							<label>Date: </label>
+							<input type="date" name="dateEat" value=" "></input>
+						
+							<label>Hours: </label>
+							<input type="time" name="timeEat" value=" "></input>
+						</div>
 				</div>
 				
 			</div>
@@ -156,7 +214,6 @@
 		<!-- button goes to basket -->
 		<button id="btnOrder" class="btn btn-outline-success">Order</button>	
 	</form>
-
 	<!-- button goes to reviews -->
 	<button id="btnReviews" type="button" class="btn btn-outline-warning">Reviews</button>
 	

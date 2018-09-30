@@ -40,7 +40,7 @@ class RestaurantsRepository extends ServiceEntityRepository
 
         $query = $entityManager->createQuery("
             SELECT DISTINCT r.id, r.picture, r.name, r.street, r.zip_code, r.city, r.phone, r.email, r.website
-            FROM App\Entity\Restaurants r          
+            FROM App\Entity\Restaurants r                    
         ");
 
         // returns an array of starter objects
