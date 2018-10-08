@@ -29,7 +29,7 @@ class OrderController extends AbstractController
 		$token = $_POST['stripeToken'];
 
 		$charge = \Stripe\Charge::create([
-			'amount' => 500,
+			'amount' => 4470,
 			'currency' => 'eur',
 			'description' => 'resto.name',
 			'source' => $token,

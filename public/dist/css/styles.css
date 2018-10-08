@@ -115,15 +115,20 @@ a:link, a:visited{
 	width: 315px;
 }
 
-/* supprimer la bordure */
+/* Carousel */
 #slideresto{
 	margin-left:23%;
 	margin-top: 5%;
-	border: 5px double purple;
 	width: 57%;
 	height: 400px;
 	color: red;
 	text-align: center;
+}
+
+/* image about the Carousel */
+#imgCarousel{
+	width:100%; 
+	height:389px;
 }
 
 #linkSite{

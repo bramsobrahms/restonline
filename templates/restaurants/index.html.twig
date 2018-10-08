@@ -3,11 +3,48 @@
 {% block title %} {{ controller_restaurants }} {% endblock %}
 
 {% block body %}
-
+	
 	<!-- The Carrousel is comming -->
-	<div id="slideresto">
-		<h1  id="top"> Il y aura le slide pour trois restaurants </h1>
+	<div id="slideresto" class="carousel slide" data-ride="carousel">
+		<!-- Bulles -->
+		<ol id="top" class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+		<!-- Slides -->
+		<div class="carousel-inner">
+			<!-- Page 1 -->
+			<div class="item active">  
+				<div class="carousel-page">
+					<img src="/pictures/ellis.jpg" class="img-responsive" id="imgCarousel" />
+				</div> 
+				<div class="carousel-caption">Ellis</div>
+			</div>   
+			<!-- Page 2 -->
+			<div class="item"> 
+				<div class="carousel-page">
+					<img src="/pictures/huileFeu.jpg" class="img-responsive img-rounded" id="imgCarousel" />
+				</div> 
+				<div class="carousel-caption">Huile sur le Feu</div>
+			</div>  
+			<!-- Page 3 -->
+			<div class="item">  
+				<div class="carousel-page">
+					<img src="/pictures/grimbergen.jpg" class="img-responsive img-rounded" id="imgCarousel"  />
+				</div>  
+				<div class="carousel-caption">Café Grimbergen</div>
+			</div>     
+		</div>
+        <!-- Carousel controls -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="carousel-control right" href="#myCarousel" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a> 
 	</div>
+	
 
 	<!-- Show all restaurants -->
 	{% for restaurants in restaurants %}
@@ -51,4 +88,9 @@
 	<div id="renderTop">
 		<a href="#top" style="color:darkgreen; font-size:15px;">Go to top</a>
 	</div>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 {% endblock %}

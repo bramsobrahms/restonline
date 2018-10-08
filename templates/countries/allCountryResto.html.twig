@@ -4,7 +4,7 @@
 
 {% block body %}
 
-	<h2 class="titleCountry"><img class="flag" src="/pictures/belgium.gif"/>Belgian<img class="flag" src="/pictures/belgium.gif"/></h2>
+	<h2 id="top" class="titleCountry"><img class="flag" src="/pictures/belgium.gif"/>Belgian<img class="flag" src="/pictures/belgium.gif"/></h2>
 	
 	<!-- This for show all Belgian resto -->
 	{% for BelgianResto in allBelgianResto %}
@@ -42,5 +42,9 @@
 			</div>
 		</div>
 	{% endfor %}
+
+	<div id="renderTop">
+			<a href="#top" style="color:darkgreen; font-size:15px;">Go to top</a>
+	</div>
 
 {% endblock %}

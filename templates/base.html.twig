@@ -41,8 +41,8 @@
 
 		<div>
 			<nav id="search">
-				<form class="form-inline">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<form action="searchResult" method="post"  class="form-inline">
+					<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			</nav>
@@ -55,18 +55,25 @@
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
 			<script scr="{{('/dist/js/navTab.js')}}"></script>
+			<script scr="{{('/dist/js/carousel.js')}}"></script>
 			<script scr="{{('/dist/js/sortDiet.js')}}"></script>
 		{% endblock %}
 
 		<div id="footer">
 			{% block footer %} 
-				<br />
-				<!-- send email to admin website -->
-				<a href="mailto:Restonline@gmail.com" style="color:#931969; font-family: 'DIN Alternate';">
-					<p class="footerCss">Contact us</p>
-				</a>
-				<a href="{{path('faq')}}"><p class="footerCss">F.A.Q</p></a>
-				<a href="{{path('termsAndConditions')}}"><p class="footerCss">Terms and conditions</p></a>
+				<div>
+					<br />
+					<!-- send email to admin website -->
+					<a href="mailto:Restonline@gmail.com">
+						<p class="footerCss">Contact us</p>
+					</a>
+					<a href="{{path('faq')}}">
+						<p class="footerCss">F.A.Q</p>
+					</a>
+					<a href="{{path('termsAndConditions')}}">
+						<p class="footerCss">Terms and conditions</p>
+					</a>
+				</div>
 
 				<!-- Property the website -->
 				<div id="proprietary">
